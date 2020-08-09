@@ -4,7 +4,7 @@ using EvilFarmingGame;
 
 namespace EvilFarmingGame.Tiles
 {
-    public class InteractableTile: Area2D
+    public abstract class InteractableTile : Area2D
     {
         public Sprite OutLine;
         public bool PlayerColliding = false;

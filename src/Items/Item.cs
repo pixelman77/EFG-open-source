@@ -11,6 +11,8 @@ namespace EvilFarmingGame.Items
         public Texture Icon;
         public Types Type;
 
+        public float Price;
+
         public enum Types
         {    
             Miscellaneous = 0,
@@ -19,14 +21,26 @@ namespace EvilFarmingGame.Items
             Crop
         }
 
-        public Item(string Name, string IconPath, string Discription, int ID, Types Type)
+        public Item(string Name, string IconPath, string Discription, int ID, Types Type, float Price) //Constructor with selling-price
         {
             this.Name = Name;
             this.IconPath = IconPath;
             this.Discription = Discription;
             this.ID = ID;
             this.Type = Type;
+            this.Price = Price;
 
+            this.Icon = (Texture)GD.Load(IconPath);
+        }
+        
+        public Item(string Name, string IconPath, string Discription, int ID, Types Type) //Constructor without selling-price
+        {
+            this.Name = Name;
+            this.IconPath = IconPath;
+            this.Discription = Discription;
+            this.ID = ID;
+            this.Type = Type;
+            
             this.Icon = (Texture)GD.Load(IconPath);
         }
         

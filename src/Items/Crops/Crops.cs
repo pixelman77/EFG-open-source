@@ -8,11 +8,11 @@ namespace EvilFarmingGame.Items.Crops
         //Test Crop
         private static Item[] crops =
         {
-            new Item("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", 0, Item.Types.Crop),
-            new Item("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", 1, Item.Types.Crop),
+            new Item("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", 0, Item.Types.Crop, 10),
+            new Item("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", 1, Item.Types.Crop, 20),
         };
         
-        public static Item GetCrops(int ID)
+        public static Item GetCrop(int ID)
         {
             foreach (Item crop in crops)
             {

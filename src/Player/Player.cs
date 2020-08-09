@@ -12,12 +12,15 @@ public class Player : KinematicBody2D
 	public Inventory Inventory;
 	private AnimatedSprite Sprite;
 
+	public float Currency = 0;
+	
 	public Node2D RayPivot;
 
 	private RichTextLabel Clock;
 	public DayNight TimeNode;
 
 	private RichTextLabel MessageLabel;
+	private RichTextLabel CurrencyLabel;
 
 	private ResourcePreloader Loader = new ResourcePreloader();
 
@@ -27,10 +30,13 @@ public class Player : KinematicBody2D
 		Sprite = (AnimatedSprite) GetNode("Sprite");
 
 		RayPivot = (Node2D) GetNode("RayPivot");
-		Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
 		
+		Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
 		MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
 		MessageLabel.BbcodeText = "";
+		
+		CurrencyLabel = (RichTextLabel) GetNode("UI/ControlUI/Currency");
+		Currency += 5;
 
 		Inventory = new Inventory();
 		Inventory.Items.Add(Tools.GetTool(0));
@@ -42,11 +48,15 @@ public class Player : KinematicBody2D
 	public override void _PhysicsProcess(float delta)
 	{
 		Controller.InputMovement(delta, RayPivot);
+		PlayerLogic();
+		
 		InventoryHandling();
 		AnimationHandeling();
 		
 		RayCasting();
 		TimeHandling();
+		
+		//GD.Print(Currency);
 	}
 
 	private void AnimationHandeling()
@@ -139,7 +149,7 @@ public class Player : KinematicBody2D
 		{
 			var collidedTile = RayCast.GetCollider();
 
-			if (collidedTile is InteractableTile)
+			if (!(collidedTile is InteractableTile)) break;
 			{
 				var collidedIntTile = (InteractableTile) collidedTile;
 
@@ -158,6 +168,12 @@ public class Player : KinematicBody2D
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay -12} PM";
 		else
 			Clock.BbcodeText = $"{TimeNode.TimeOfDay} AM";
+	}
+
+	private void PlayerLogic()
+	{
+		if (CurrencyLabel != null)
+			CurrencyLabel.BbcodeText = $"{Currency}G";
 	}
 
 	public void MessagePlayer(string Message)

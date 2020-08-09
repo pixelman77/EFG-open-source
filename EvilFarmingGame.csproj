@@ -71,6 +71,7 @@
     <Compile Include="src\Player\PlayerController.cs" />
     <Compile Include="src\Tiles\Farm\SeedStrorage\TestSeedStorage\SeedStorage.cs" />
     <Compile Include="src\GameControl.cs" />
+    <Compile Include="src\Tiles\Farm\SellingBooth\SellingBooth.cs" />
     <Compile Include="src\Tiles\Home\Bed\Bed.cs" />
     <Compile Include="src\Tiles\InteractableTile.cs" />
   </ItemGroup>

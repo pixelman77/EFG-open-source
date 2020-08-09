@@ -48,6 +48,9 @@
                 <e p="SeedStorage.cs" t="Include" />
               </e>
             </e>
+            <e p="SellingBooth" t="Include">
+              <e p="SellingBooth.cs" t="Include" />
+            </e>
           </e>
           <e p="Home" t="Include">
             <e p="Bed" t="Include">
