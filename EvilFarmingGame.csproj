@@ -59,10 +59,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Enviorments\DayNight.cs" />
-    <Compile Include="src\Items\Crops\Crops.cs" />
     <Compile Include="src\Items\Item.cs" />
-    <Compile Include="src\Items\Seeds\Seeds.cs" />
-    <Compile Include="src\Items\Tools\Tools.cs" />
+    <Compile Include="src\Items\Database.cs" />
     <Compile Include="src\Tiles\Farm\FarmLand\FarmLand.cs" />
     <Compile Include="src\Tiles\Farm\Plants\Plant.cs" />
     <Compile Include="src\Tiles\Farm\Plants\Plants.cs" />
@@ -74,6 +72,11 @@
     <Compile Include="src\Tiles\Farm\SellingBooth\SellingBooth.cs" />
     <Compile Include="src\Tiles\Home\Bed\Bed.cs" />
     <Compile Include="src\Tiles\InteractableTile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Items\Crops\" />
+    <Folder Include="src\Items\Seeds\" />
+    <Folder Include="src\Items\Tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

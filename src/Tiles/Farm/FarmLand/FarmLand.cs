@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using EvilFarmingGame.Items;
-using EvilFarmingGame.Items.Tools;
 using EvilFarmingGame.Objects.Farm.Plants;
 using EvilFarmingGame.Tiles;
 
@@ -92,39 +91,40 @@ public class FarmLand : InteractableTile
 				{
 
 					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
+                    if (HeldItem is Tool tool) 
+                    {
+                        if (tool.Type == ToolTypes.Hoe && State == states.UnCropped) 
+                        {
+                            State = states.Cropped;
+                        }
+						else if (tool.Type == ToolTypes.WateringCan && State == states.Planted) 
+                        {
+                            State = states.Watered;
+                            PlantGrownTimer.Start();
+                        }
+                    }
+					else if (HeldItem is Seed seed) 
+                    {
+                        if (State == states.Cropped)
+                        {
+                            State = states.Planted;
 
-					if (HeldItem == Tools.GetTool(0) && State == states.UnCropped)
-					{
-						State = states.Cropped;
-					}
+                            CurrentPlant = Database<Plant>.Get(seed.PlantID);
 
-					if (HeldItem.Type == Item.Types.Seed)
-					{
-						if (State == states.Cropped)
-						{
-							State = states.Planted;
-
-							switch (HeldItem.ID)
-							{
-								case 0:
-									CurrentPlant = Plants.GetPlant(0);
-									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
-									break;
-								case 1:
-									CurrentPlant = Plants.GetPlant(1);
-									PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
-									break;
-							}
-						}
-					}
-
-					if (HeldItem == Tools.GetTool(1) && State == states.Planted)
-					{
-						State = states.Watered;
-						PlantGrownTimer.Start();
-					}
-
-				}
+                            switch (HeldItem.ID)
+                            {
+                                case 0:
+                                    CurrentPlant = Plants.GetPlant(0);
+                                    PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
+                                    break;
+                                case 1:
+                                    CurrentPlant = Plants.GetPlant(1);
+                                    PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
+                                    break;
+                            }
+                        }
+                    }
+                }
 
 				if (PlayerBody != null && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
 				{

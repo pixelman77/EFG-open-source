@@ -1,5 +1,5 @@
 using System;
-using EvilFarmingGame.Items.Crops;
+using EvilFarmingGame.Items;
 
 namespace EvilFarmingGame.Objects.Farm.Plants
 {
@@ -10,11 +10,11 @@ namespace EvilFarmingGame.Objects.Farm.Plants
             //TestPlant
             new Plant("Test Plant", "A Plant used for testing and debugging purposes", 0,
                 "res://src/Tiles/Farm/Plants/TestPlant/Texture1.png",
-                "res://src/Tiles/Farm/Plants/TestPlant/Texture2.png", Crops.GetCrop(0)),
+                "res://src/Tiles/Farm/Plants/TestPlant/Texture2.png", Database<Item>.Get("Crops\\TestCrop")),
             //TestPlant 2
             new Plant("Test Plant2", "A Plant used for testing and debugging purposes", 1,
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture1.png",
-                "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Crops.GetCrop(1))
+                "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Database<Item>.Get("Crops\\TestCrop2"))
         };
         
         public static Plant GetPlant(int ID)

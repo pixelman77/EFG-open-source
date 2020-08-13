@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using EvilFarmingGame.Items;
-using EvilFarmingGame.Items.Tools;
 using EvilFarmingGame.Player;
 using EvilFarmingGame.Tiles;
 
@@ -39,8 +38,8 @@ public class Player : KinematicBody2D
 		Currency += 5;
 
 		Inventory = new Inventory();
-		Inventory.Items.Add(Tools.GetTool(0));
-		Inventory.Items.Add(Tools.GetTool(1));
+        Inventory.Items.Add(Database<Item>.Get("Tools\\BasicHoe"));
+		Inventory.Items.Add(Database<Item>.Get("Tools\\BasicWateringCan"));
 
 		TimeNode = (DayNight) GetNode("DayNight");
 	}

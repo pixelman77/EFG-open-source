@@ -6,7 +6,7 @@ using EvilFarmingGame.Tiles;
 
 public class SeedStorage : InteractableTile
 {
-	[Export] private int Seed;
+	[Export] private string SeedID;
 
 	public override void _Ready()
 	{
@@ -17,7 +17,7 @@ public class SeedStorage : InteractableTile
 	{
 		if (PlayerColliding)
 		{
-			var CurrentSeed = Seeds.GetSeed(Seed);
+			var CurrentSeed = Database<Item>.Get("Seeds\\"+SeedID);
 
 			if (Input.IsActionJustPressed("Player_Action"))
 			{

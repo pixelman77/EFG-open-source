@@ -6,17 +6,9 @@ public class GameControl : Node2D
     private bool Debugging = true;
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("Window_fullscr"))
+        if (Input.IsActionJustPressed("Window_fullscr")) 
         {
-            switch (OS.WindowFullscreen)
-            {
-                case true:
-                    OS.WindowFullscreen = false;
-                    break;
-                case false:
-                    OS.WindowFullscreen = true;
-                    break;
-            }
+            OS.WindowFullscreen = !OS.WindowFullscreen;
         }
 
         if (Input.IsActionJustPressed("Window_exit"))
