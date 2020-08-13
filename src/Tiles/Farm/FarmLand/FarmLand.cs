@@ -91,27 +91,27 @@ public class FarmLand : InteractableTile
 				{
 
 					HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
-                    if (HeldItem is Tool tool) 
-                    {
-                        if (tool.Type == ToolTypes.Hoe && State == states.UnCropped) 
-                        {
-                            State = states.Cropped;
-                        }
+					if (HeldItem is Tool tool) 
+					{
+						if (tool.Type == ToolTypes.Hoe && State == states.UnCropped) 
+						{
+							State = states.Cropped;
+						}
 						else if (tool.Type == ToolTypes.WateringCan && State == states.Planted) 
-                        {
-                            State = states.Watered;
-                            PlantGrownTimer.Start();
-                        }
-                    }
+						{
+							State = states.Watered;
+							PlantGrownTimer.Start();
+						}
+					}
 					else if (HeldItem is Seed seed) 
-                    {
-                        if (State == states.Cropped)
-                        {
-                            State = states.Planted;
-                            CurrentPlant = Database<Plant>.Get(seed.PlantID);
-                        }
-                    }
-                }
+					{
+						if (State == states.Cropped)
+						{
+							State = states.Planted;
+							CurrentPlant = Database<Plant>.Get(seed.PlantID);
+						}
+					}
+				}
 
 				if (PlayerBody != null && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
 				{
