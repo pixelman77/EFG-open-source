@@ -1,5 +1,0 @@
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/.NETFramework,Version=v4.7.AssemblyAttribute.cs
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/bin/Debug/EvilFarmingGame.dll.mdb
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/bin/Debug/EvilFarmingGame.dll
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/EvilFarmingGame.dll
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/EvilFarmingGame.dll.mdb
