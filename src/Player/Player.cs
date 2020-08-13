@@ -38,7 +38,7 @@ public class Player : KinematicBody2D
 		Currency += 5;
 
 		Inventory = new Inventory();
-        Inventory.Items.Add(Database<Item>.Get("Tools\\BasicHoe"));
+		Inventory.Items.Add(Database<Item>.Get("Tools\\BasicHoe"));
 		Inventory.Items.Add(Database<Item>.Get("Tools\\BasicWateringCan"));
 
 		TimeNode = (DayNight) GetNode("DayNight");
@@ -62,12 +62,12 @@ public class Player : KinematicBody2D
 	{	
 		
 		if (Input.IsActionPressed("Player_Left") ||
-		    (Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
+			(Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
 			{
 				Sprite.Play("Left-walk");
 			}
 			else if (Input.IsActionPressed("Player_Right") ||
-			         (Input.IsActionPressed("Player_Right") && Input.IsActionPressed("Player_UP")))
+					 (Input.IsActionPressed("Player_Right") && Input.IsActionPressed("Player_UP")))
 			{
 				Sprite.Play("Right-walk");
 			}
@@ -83,12 +83,12 @@ public class Player : KinematicBody2D
 		else
 		{
 			if (Input.IsActionJustReleased("Player_Left") ||
-			    (Input.IsActionJustReleased("Player_Left") && Input.IsActionJustReleased("Player_UP")))
+				(Input.IsActionJustReleased("Player_Left") && Input.IsActionJustReleased("Player_UP")))
 			{
 				Sprite.Play("Left");
 			}
 			else if (Input.IsActionJustReleased("Player_Right") ||
-			         (Input.IsActionJustReleased("Player_Right") && Input.IsActionJustReleased("Player_UP")))
+					 (Input.IsActionJustReleased("Player_Right") && Input.IsActionJustReleased("Player_UP")))
 			{
 				Sprite.Play("Right");
 			}

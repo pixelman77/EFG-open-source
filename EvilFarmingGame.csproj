@@ -73,10 +73,6 @@
     <Compile Include="src\Tiles\Home\Bed\Bed.cs" />
     <Compile Include="src\Tiles\InteractableTile.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Items\Crops\" />
-    <Folder Include="src\Items\Seeds\" />
-    <Folder Include="src\Items\Tools\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

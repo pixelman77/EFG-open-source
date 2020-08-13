@@ -11,7 +11,7 @@ namespace EvilFarmingGame.Items
     {
         internal static bool Initialized { get; private set; }
 
-        private static Dictionary<string, Item> items = new Dictionary<string, Item> {
+        private static Dictionary<string, Item> Items => new Dictionary<string, Item> {
             // Crops.
             { "Crops\\TestCrop", new Crop("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", 0, 10) },
             { "Crops\\TestCrop2", new Crop("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", 1, 20) },
@@ -25,7 +25,7 @@ namespace EvilFarmingGame.Items
             { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", 1, ToolTypes.WateringCan) }
         };
 
-        private static Dictionary<string, Plant> plants = new Dictionary<string, Plant> {
+        private static Dictionary<string, Plant> Plants => new Dictionary<string, Plant> {
             { "TestPlant",  new Plant("Test Plant", "A Plant used for testing and debugging purposes", 0,
                 "res://src/Tiles/Farm/Plants/TestPlant/Texture1.png",
                 "res://src/Tiles/Farm/Plants/TestPlant/Texture2.png", Database<Item>.Get("Crops\\TestCrop")) },
@@ -37,11 +37,12 @@ namespace EvilFarmingGame.Items
 
         public static void Initialize()
         {
-            if (Initialized)
-                return;
-
-            Database<Item>.Register(items);
             Initialized = true;
+
+            // The database CREATES dictionaries of items, and then registers them.
+            // Therefore the order is important.
+            Database<Item>.Register(Items);
+            Database<Plant>.Register(Plants);
         }
     }
 
@@ -76,6 +77,10 @@ namespace EvilFarmingGame.Items
             items.Add(itemID, item);
         }
 
+        /// <summary>
+        /// Registers a dictionary of items into the database. Replaces existing IDs.
+        /// </summary>
+        /// <param name="dictionary">Dictionary of items to register.</param>
         public static void Register(Dictionary<string, T> dictionary)
         {
             foreach (var pair in dictionary) {
