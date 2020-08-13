@@ -6,30 +6,30 @@ using EvilFarmingGame.Tiles;
 
 public class SeedStorage : InteractableTile
 {
-	[Export] private int Seed;
+    [Export] private string SeedID;
 
-	public override void _Ready()
-	{
-		InitTile();
-	}
+    public override void _Ready()
+    {
+        InitTile();
+    }
 
-	public override void _PhysicsProcess(float delta)
-	{
-		if (PlayerColliding)
-		{
-			var CurrentSeed = Seeds.GetSeed(Seed);
+    public override void _PhysicsProcess(float delta)
+    {
+        if (PlayerColliding)
+        {
+            var CurrentSeed = Database<Item>.Get("Seeds\\"+SeedID);
 
-			if (Input.IsActionJustPressed("Player_Action"))
-			{
-				if ((PlayerBody.Currency >= CurrentSeed.Price) && (PlayerBody.Inventory.Items.Count <= PlayerBody.Inventory.Items.Capacity))
-				{
-					PlayerBody.Currency -= CurrentSeed.Price;
-					PlayerBody.Inventory.Gain(CurrentSeed);
-				}
-			}
-		}
-		UpdateTile();
-	}
+            if (Input.IsActionJustPressed("Player_Action"))
+            {
+                if ((PlayerBody.Currency >= CurrentSeed.Price) && (PlayerBody.Inventory.Items.Count <= PlayerBody.Inventory.Items.Capacity))
+                {
+                    PlayerBody.Currency -= CurrentSeed.Price;
+                    PlayerBody.Inventory.Gain(CurrentSeed);
+                }
+            }
+        }
+        UpdateTile();
+    }
 
-	
+    
 }
