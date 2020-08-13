@@ -27,14 +27,16 @@ namespace EvilFarmingGame.Items
 
     public class Crop : Item
     {
-        public Crop(string Name, string IconPath, string Discription, int ID, float Price = 0) : base(Name, IconPath, Discription, ID, Price) { }
+        public Crop(string Name, string IconPath, string Discription, int ID, float Price = 0) 
+            : base(Name, IconPath, Discription, ID, Price) { }
     }
 
     public class Seed : Item
     {
         public string PlantID { get; }
 
-        public Seed(string Name, string IconPath, string Discription, int ID, string plantID, float Price = 0) : base(Name, IconPath, Discription, ID, Price)
+        public Seed(string Name, string IconPath, string Discription, int ID, string plantID, float Price = 0) 
+            : base(Name, IconPath, Discription, ID, Price)
         {
             PlantID = plantID;
         }
@@ -44,7 +46,8 @@ namespace EvilFarmingGame.Items
     {
         public ToolTypes Type { get; }
 
-        public Tool(string Name, string IconPath, string Discription, int ID, ToolTypes type, float Price = 0) : base(Name, IconPath, Discription, ID, Price)
+        public Tool(string Name, string IconPath, string Discription, int ID, ToolTypes type, float Price = 0) 
+            : base(Name, IconPath, Discription, ID, Price)
         {
             Type = type; 
         }

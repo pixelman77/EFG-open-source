@@ -108,20 +108,7 @@ public class FarmLand : InteractableTile
                         if (State == states.Cropped)
                         {
                             State = states.Planted;
-
                             CurrentPlant = Database<Plant>.Get(seed.PlantID);
-
-                            switch (HeldItem.ID)
-                            {
-                                case 0:
-                                    CurrentPlant = Plants.GetPlant(0);
-                                    PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
-                                    break;
-                                case 1:
-                                    CurrentPlant = Plants.GetPlant(1);
-                                    PlayerBody.Inventory.Remove(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]);
-                                    break;
-                            }
                         }
                     }
                 }

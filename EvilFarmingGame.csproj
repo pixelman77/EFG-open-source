@@ -63,7 +63,6 @@
     <Compile Include="src\Items\Database.cs" />
     <Compile Include="src\Tiles\Farm\FarmLand\FarmLand.cs" />
     <Compile Include="src\Tiles\Farm\Plants\Plant.cs" />
-    <Compile Include="src\Tiles\Farm\Plants\Plants.cs" />
     <Compile Include="src\Player\Inventory.cs" />
     <Compile Include="src\Player\Player.cs" />
     <Compile Include="src\Player\PlayerController.cs" />
