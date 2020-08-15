@@ -1,6 +1,0 @@
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/bin/Debug/EvilFarmingGame.dll
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/bin/Debug/EvilFarmingGame.pdb
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/EvilFarmingGame.csproj.CoreCompileInputs.cache
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/EvilFarmingGame.dll
-/media/comlarsic/9CC2-5E4B/Projects/godot/EFG-open-source/.mono/temp/obj/Debug/EvilFarmingGame.pdb
