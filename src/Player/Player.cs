@@ -14,6 +14,7 @@ public class Player : KinematicBody2D
     public float Currency = 0;
     
     public Node2D RayPivot;
+    public static Vector2 Velocity;
 
     private RichTextLabel Clock;
     public DayNight TimeNode;
@@ -46,7 +47,7 @@ public class Player : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        Controller.InputMovement(delta, RayPivot);
+        Velocity = Controller.InputMovement(delta);
         PlayerLogic();
         
         InventoryHandling();
