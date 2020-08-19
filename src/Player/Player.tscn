@@ -29,21 +29,6 @@ animations = [ {
 "name": "Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Right-walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Down-walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Down",
@@ -54,14 +39,29 @@ animations = [ {
 "name": "Up-walk",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Right",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Left-walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "Right",
+"name": "Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Right-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Down-walk",
 "speed": 5.0
 } ]
 
@@ -247,11 +247,10 @@ __meta__ = {
 [node name="Currency" type="RichTextLabel" parent="UI/ControlUI"]
 margin_left = 251.0
 margin_top = 219.0
-margin_right = 379.0
+margin_right = 400.0
 margin_bottom = 288.0
 custom_fonts/normal_font = SubResource( 5 )
-text = "Money
-"
+text = "Currency"
 __meta__ = {
 "_edit_use_anchors_": false
 }
