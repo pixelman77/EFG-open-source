@@ -61,6 +61,7 @@
     <Compile Include="src\Enviorments\DayNight.cs" />
     <Compile Include="src\Items\Item.cs" />
     <Compile Include="src\Items\Database.cs" />
+    <Compile Include="src\Player\InventoryDetails.cs" />
     <Compile Include="src\Tiles\Farm\FarmLand\FarmLand.cs" />
     <Compile Include="src\Tiles\Farm\Plants\Plant.cs" />
     <Compile Include="src\Player\Inventory.cs" />
