@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+.mono/
+=======
 ### Custom rules.
 .mono/metadata/ide_messaging_meta.txt
 .mono/metadata/ide_messaging_meta.txt
@@ -376,3 +379,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+>>>>>>> 996036a10b30f8178831127b8739137db3b72ac8

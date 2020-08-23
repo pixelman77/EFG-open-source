@@ -12,7 +12,7 @@ public class Bed : InteractableTile
     public override void _PhysicsProcess(float delta)
     {
 
-        if (Input.IsActionJustPressed("Player_Action"))
+        if (Input.IsActionJustPressed("Player_Action") && PlayerColliding)
         {
             if (PlayerBody != null)
             {
@@ -23,7 +23,7 @@ public class Bed : InteractableTile
             }
         }
 
-        if (PlayerBody != null && !PlayerBody.TimeNode.AnimationPlayer.IsPlaying())
+        if (PlayerBody != null && !PlayerBody.TimeNode.AnimationPlayer.IsPlaying() && PlayerColliding)
             PlayerBody.TimeNode.AnimationPlayer.Play("Day-Night");
 
         UpdateTile();

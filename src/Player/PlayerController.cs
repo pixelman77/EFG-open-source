@@ -14,7 +14,7 @@ namespace EvilFarmingGame.Player
 			this.Body = Body;
 		}
 
-		public Vector2 InputMovement(float delta, Node2D RayPivot) // The Movement method based on Input 
+		public Vector2 InputMovement(float delta) // The Movement method based on Input 
 		{
 			Vector2 Velocity = new Vector2();
 
