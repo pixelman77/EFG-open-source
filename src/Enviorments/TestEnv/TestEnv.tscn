@@ -25,9 +25,11 @@ position = Vector2( 688, 112 )
 
 [node name="TestSeedStorage" parent="Enviorment" instance=ExtResource( 4 )]
 position = Vector2( 408, 56 )
+SeedID = "TestSeed"
 
 [node name="TestSeedStorage2" parent="Enviorment" instance=ExtResource( 4 )]
 position = Vector2( 456, 56 )
+SeedID = "TestSeed2"
 
 [node name="Sprite" parent="Enviorment/TestSeedStorage2" index="0"]
 modulate = Color( 0.0862745, 0, 0.847059, 1 )

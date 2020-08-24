@@ -6,7 +6,7 @@ using EvilFarmingGame.Tiles;
 
 public class SeedStorage : InteractableTile
 {
-    [Export] private string SeedID;
+    [Export] public string SeedID;
 
     public override void _Ready()
     {
