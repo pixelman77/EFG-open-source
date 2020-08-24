@@ -28,6 +28,7 @@
         </e>
         <e p="Player" t="Include">
           <e p="Inventory.cs" t="Include" />
+          <e p="InventoryDetails.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
         </e>

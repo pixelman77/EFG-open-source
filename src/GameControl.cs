@@ -3,7 +3,7 @@ using System;
 
 public class GameControl : Node2D
 {
-    private bool Debugging = true;
+    public static bool Debugging = true;
     public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed("Window_fullscr")) 

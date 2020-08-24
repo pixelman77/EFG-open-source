@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/Player/Inventory/InventroySelected.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_6.png" type="Texture" id=15]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_10.png" type="Texture" id=16]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_9.png" type="Texture" id=17]
+[ext_resource path="res://src/Player/InventoryDetails.cs" type="Script" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
@@ -29,29 +30,9 @@ animations = [ {
 "name": "Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "Up-walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "Right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Left-walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
@@ -59,9 +40,29 @@ animations = [ {
 "name": "Right-walk",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Down",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Down-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Up-walk",
 "speed": 5.0
 } ]
 
@@ -242,6 +243,21 @@ bbcode_text = "Message"
 text = "Message"
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="InventoryDetails" type="RichTextLabel" parent="UI/ControlUI"]
+margin_left = 254.0
+margin_top = 627.334
+margin_right = 761.0
+margin_bottom = 670.334
+rect_scale = Vector2( 1.02198, 1.35429 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Message"
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
 [node name="Currency" type="RichTextLabel" parent="UI/ControlUI"]
