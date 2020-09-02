@@ -53,8 +53,19 @@
             <e p="Bed" t="Include">
               <e p="Bed.cs" t="Include" />
             </e>
+            <e p="Storage" t="Include">
+              <e p="Storage.cs" t="Include" />
+              <e p="TestStorage" t="Include">
+                <e p="TestCloset.cs" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="InteractableTile.cs" t="Include" />
+        </e>
+        <e p="UI" t="Include">
+          <e p="Inventory" t="Include">
+            <e p="InventorySlot.cs" t="Include" />
+          </e>
         </e>
       </e>
     </e>

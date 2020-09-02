@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/Tiles/Home/Bed/Bed.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Tiles/Farm/SellingBooth/SellingBooth.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Bodies/WifesBody/WifesBody.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" type="PackedScene" id=8]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -186,6 +187,9 @@ rotation = 1.5708
 
 [node name="WifesBody" parent="Enviorment" instance=ExtResource( 7 )]
 position = Vector2( 432, 376 )
+
+[node name="TestCloset" parent="Enviorment" instance=ExtResource( 8 )]
+position = Vector2( 96, 32 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )

@@ -12,6 +12,8 @@ public class Player : KinematicBody2D
     private AnimatedSprite Sprite;
 
     public float Currency = 0;
+
+    public bool CanMove = true;
     
     public Node2D RayPivot;
     public static Vector2 Velocity;
@@ -38,7 +40,7 @@ public class Player : KinematicBody2D
         CurrencyLabel = (RichTextLabel) GetNode("UI/ControlUI/Currency");
         Currency += 5;
 
-        Inventory = new Inventory();
+        Inventory = new Inventory(5);
         Inventory.Items.Add(Database<Item>.Get("Tools\\BasicHoe"));
         Inventory.Items.Add(Database<Item>.Get("Tools\\BasicWateringCan"));
 
@@ -47,18 +49,21 @@ public class Player : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        Velocity = Controller.InputMovement(delta);
-        PlayerLogic();
+        if (CanMove)
+        {
+            Velocity = Controller.InputMovement(delta);
+            AnimationHandeling();
+        }
         
         InventoryHandling();
-        AnimationHandeling();
-        
+        PlayerLogic();
         RayCasting();
         TimeHandling();
         
         //GD.Print(Currency);
     }
-
+    
+    //TODO: Add Body-Drag Animation
     private void AnimationHandeling()
     {	
         
@@ -108,27 +113,23 @@ public class Player : KinematicBody2D
     {
         for (int i = 0; i < Inventory.Items.Count; i++)
         {
-            Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i + 1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i + 1}/Selection");
+            Sprite Icon = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Item");
+            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Selection");
 
-            if (Inventory[i] != null)
-                Icon.Texture = Inventory[i].Icon;
+            if (Inventory[i] != null) Icon.Texture = Inventory[i].Icon;
         }
 
         for (int i = 0; i < Inventory.Items.Capacity; i++)
         {
-            Sprite Icon = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i + 1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/Inventory Slot{i + 1}/Selection");
+            Sprite Icon = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Item");
+            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Selection");
 
             if (i == Inventory.HeldSlot)
                 SelectBox.Show();
             else
                 SelectBox.Hide();
 
-            if (Inventory.Items.Count <= i)
-            {
-                Icon.Texture = (Texture) GD.Load("res://src/NoTexture.png");
-            }
+            if (Inventory.Items.Count <= i) Icon.Texture = (Texture) GD.Load("res://src/NoTexture.png");
         }
 
         if (Input.IsActionJustPressed("ui_right"))
@@ -149,7 +150,7 @@ public class Player : KinematicBody2D
         {
             var collidedTile = RayCast.GetCollider();
 
-            if (!(collidedTile is InteractableTile)) break;
+            if (collidedTile is InteractableTile)
             {
                 var collidedIntTile = (InteractableTile) collidedTile;
 

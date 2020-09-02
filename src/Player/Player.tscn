@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
-[ext_resource path="res://src/Player/Inventory/InventroySelected.png" type="Texture" id=2]
-[ext_resource path="res://src/Player/Inventory/InventorySlot.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Enviorments/Day-night.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
 [ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=6]
@@ -105,111 +104,22 @@ scale = Vector2( 1.5, 1.5 )
 transform = Transform2D( 1.5, 0, 0, 1.5, 0, 0 )
 
 [node name="Inventory" type="Node2D" parent="UI"]
-position = Vector2( 74.6666, 85.3333 )
+position = Vector2( 714.667, 496 )
 
-[node name="Inventory Slot5" type="Node2D" parent="UI/Inventory"]
+[node name="InventorySlot1" parent="UI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( -186.667, -85.3333 )
 
-[node name="Slot" type="Sprite" parent="UI/Inventory/Inventory Slot5"]
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-centered = false
+[node name="InventorySlot2" parent="UI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( -122.667, -85.3333 )
 
-[node name="Selection" type="Sprite" parent="UI/Inventory/Inventory Slot5"]
-visible = false
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-centered = false
+[node name="InventorySlot3" parent="UI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( -58.6667, -85.3333 )
 
-[node name="Item" type="Sprite" parent="UI/Inventory/Inventory Slot5"]
-position = Vector2( 712, 328 )
-scale = Vector2( 1.5, 1.5 )
-centered = false
+[node name="InventorySlot4" parent="UI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( 5.33331, -85.3333 )
 
-[node name="Inventory Slot4" type="Node2D" parent="UI/Inventory"]
-position = Vector2( -64, 0 )
-
-[node name="Slot" type="Sprite" parent="UI/Inventory/Inventory Slot4"]
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="Selection" type="Sprite" parent="UI/Inventory/Inventory Slot4"]
-visible = false
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="Item" type="Sprite" parent="UI/Inventory/Inventory Slot4"]
-position = Vector2( 712, 328 )
-scale = Vector2( 1.5, 1.5 )
-centered = false
-
-[node name="Inventory Slot3" type="Node2D" parent="UI/Inventory"]
-position = Vector2( -128, 0 )
-
-[node name="Slot" type="Sprite" parent="UI/Inventory/Inventory Slot3"]
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="Selection" type="Sprite" parent="UI/Inventory/Inventory Slot3"]
-visible = false
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="Item" type="Sprite" parent="UI/Inventory/Inventory Slot3"]
-position = Vector2( 712, 328 )
-scale = Vector2( 1.5, 1.5 )
-centered = false
-
-[node name="Inventory Slot2" type="Node2D" parent="UI/Inventory"]
-position = Vector2( -192, 0 )
-
-[node name="Slot" type="Sprite" parent="UI/Inventory/Inventory Slot2"]
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="Selection" type="Sprite" parent="UI/Inventory/Inventory Slot2"]
-visible = false
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="Item" type="Sprite" parent="UI/Inventory/Inventory Slot2"]
-position = Vector2( 712, 328 )
-scale = Vector2( 1.5, 1.5 )
-centered = false
-
-[node name="Inventory Slot1" type="Node2D" parent="UI/Inventory"]
-position = Vector2( -256, 0 )
-
-[node name="Slot" type="Sprite" parent="UI/Inventory/Inventory Slot1"]
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="Selection" type="Sprite" parent="UI/Inventory/Inventory Slot1"]
-visible = false
-position = Vector2( 704, 320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="Item" type="Sprite" parent="UI/Inventory/Inventory Slot1"]
-position = Vector2( 712, 328 )
-scale = Vector2( 1.5, 1.5 )
-centered = false
+[node name="InventorySlot5" parent="UI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( 69.3333, -85.3333 )
 
 [node name="ControlUI" type="Control" parent="UI"]
 margin_left = -250.667
@@ -254,6 +164,7 @@ rect_scale = Vector2( 1.02198, 1.35429 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "Message"
+text = "Message"
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false,

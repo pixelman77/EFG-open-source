@@ -6,13 +6,14 @@ public class GameControl : Node2D
     public static bool Debugging = true;
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("Window_fullscr")) 
+        if (Input.IsActionJustPressed("Window_Fullscr")) 
         {
             OS.WindowFullscreen = !OS.WindowFullscreen;
         }
-
-        if (Input.IsActionJustPressed("Window_exit"))
-            GetTree().Quit();
+        
+        //TODO: Add game menu
+        //if (Input.IsActionJustPressed("Window_Exit"))
+        //GetTree().Quit();
 
         if (Input.IsActionPressed("Game_FastForward") && Debugging)
             Engine.TimeScale = 15;

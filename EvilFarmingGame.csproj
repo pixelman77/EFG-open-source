@@ -72,8 +72,13 @@
     <Compile Include="src\GameControl.cs" />
     <Compile Include="src\Tiles\Farm\SellingBooth\SellingBooth.cs" />
     <Compile Include="src\Tiles\Home\Bed\Bed.cs" />
+    <Compile Include="src\Tiles\Home\Storage\Storage.cs" />
+    <Compile Include="src\Tiles\Home\Storage\TestStorage\TestCloset.cs" />
     <Compile Include="src\Tiles\InteractableTile.cs" />
+    <Compile Include="src\UI\Inventory\InventorySlot.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\UI\Inventory" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

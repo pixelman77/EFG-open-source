@@ -109,6 +109,7 @@ public class FarmLand : InteractableTile
                         {
                             State = states.Planted;
                             CurrentPlant = Database<Plant>.Get(seed.PlantID);
+                            PlayerBody.Inventory.Remove(HeldItem);
                         }
                     }
                 }

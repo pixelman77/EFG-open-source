@@ -1,0 +1,134 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://src/Tiles/OutLine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet8.png" type="Texture" id=2]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet7.png" type="Texture" id=3]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet1.png" type="Texture" id=4]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet15.png" type="Texture" id=5]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet14.png" type="Texture" id=6]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet13.png" type="Texture" id=7]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet17.png" type="Texture" id=8]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet11.png" type="Texture" id=9]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet10.png" type="Texture" id=10]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet2.png" type="Texture" id=11]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet4.png" type="Texture" id=12]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet6.png" type="Texture" id=13]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet5.png" type="Texture" id=14]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet3.png" type="Texture" id=15]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet16.png" type="Texture" id=16]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet21.png" type="Texture" id=17]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet20.png" type="Texture" id=18]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet18.png" type="Texture" id=19]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet19.png" type="Texture" id=20]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet12.png" type="Texture" id=21]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/Sprites/closet9.png" type="Texture" id=22]
+[ext_resource path="res://src/Tiles/Home/Storage/TestStorage/TestCloset.cs" type="Script" id=23]
+[ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 22 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 21 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Open",
+"speed": 45.0
+} ]
+
+[node name="TestCloset" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 23 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Open"
+frame = 1
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[node name="OutLine" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 32 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/Control"]
+modulate = Color( 1, 1, 1, 0.392157 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 1280, 0, 1280, 744, 0, 744 )
+
+[node name="InventorySlots" type="Node2D" parent="UI/Control"]
+
+[node name="InventorySlot1" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 896, 192 )
+
+[node name="InventorySlot2" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 896, 256 )
+
+[node name="InventorySlot3" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 896, 320 )
+
+[node name="InventorySlot4" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 896, 384 )
+
+[node name="InventorySlot5" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 896, 448 )
+
+[node name="InventorySlot6" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 960, 448 )
+
+[node name="InventorySlot7" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 960, 384 )
+
+[node name="InventorySlot8" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 960, 320 )
+
+[node name="InventorySlot9" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 960, 256 )
+
+[node name="InventorySlot10" parent="UI/Control/InventorySlots" instance=ExtResource( 24 )]
+position = Vector2( 960, 192 )
+
+[node name="PlayerSlots" type="Node2D" parent="UI/Control"]
+
+[node name="InventorySlot1" parent="UI/Control/PlayerSlots" instance=ExtResource( 24 )]
+position = Vector2( 256, 192 )
+
+[node name="InventorySlot2" parent="UI/Control/PlayerSlots" instance=ExtResource( 24 )]
+position = Vector2( 256, 256 )
+
+[node name="InventorySlot3" parent="UI/Control/PlayerSlots" instance=ExtResource( 24 )]
+position = Vector2( 256, 320 )
+
+[node name="InventorySlot4" parent="UI/Control/PlayerSlots" instance=ExtResource( 24 )]
+position = Vector2( 256, 384 )
+
+[node name="InventorySlot5" parent="UI/Control/PlayerSlots" instance=ExtResource( 24 )]
+position = Vector2( 256, 448 )
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot1" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot2" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot3" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot4" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot5" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot6" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot7" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot8" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot9" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/InventorySlots/InventorySlot10" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/PlayerSlots/InventorySlot1" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/PlayerSlots/InventorySlot2" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/PlayerSlots/InventorySlot3" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/PlayerSlots/InventorySlot4" to="." method="SlotClicked"]
+[connection signal="SlotClicked" from="UI/Control/PlayerSlots/InventorySlot5" to="." method="SlotClicked"]

@@ -7,11 +7,16 @@ namespace EvilFarmingGame.Player
 {
 	public class Inventory
 	{
-		public List<Item> Items = new List<Item>(5);
+		public List<Item> Items;
 		public Item HeldItem;
 
 		public int HeldSlot = 0;
 
+		public Inventory(int Capacity)
+		{
+			Items = new List<Item>(Capacity);
+		}
+		
 		public Item this[int index]
 		{
 			get { return this.Items[index]; }
