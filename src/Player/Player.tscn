@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
@@ -76,6 +76,14 @@ font_data = ExtResource( 5 )
 [sub_resource type="DynamicFont" id=5]
 size = 32
 font_data = ExtResource( 5 )
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 8.00002
+height = 0.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -186,24 +194,24 @@ __meta__ = {
 wait_time = 2.0
 one_shot = true
 
-[node name="RayPivot" type="Node2D" parent="."]
-
-[node name="RayCast2D" type="RayCast2D" parent="RayPivot" groups=[
+[node name="RayPivot" type="Area2D" parent="." groups=[
 "PlayerRays",
 ]]
-position = Vector2( 0, 17 )
-enabled = true
-cast_to = Vector2( 0, 12 )
-collide_with_areas = true
+collision_mask = 0
 
-[node name="RayCast2D2" type="RayCast2D" parent="." groups=[
+[node name="RayCast2D" type="CollisionShape2D" parent="RayPivot"]
+position = Vector2( 0, 16 )
+shape = SubResource( 6 )
+
+[node name="StaticRaycast" type="Area2D" parent="." groups=[
 "PlayerRays",
 ]]
-position = Vector2( 0, -17 )
+collision_mask = 0
+
+[node name="RayCast2D2" type="CollisionShape2D" parent="StaticRaycast"]
+position = Vector2( 0, -16 )
 rotation = 3.14159
-enabled = true
-cast_to = Vector2( 0, 12 )
-collide_with_areas = true
+shape = SubResource( 7 )
 
 [node name="DayNight" parent="." instance=ExtResource( 4 )]
 

@@ -31,7 +31,7 @@ public class Player : KinematicBody2D
         Controller = new PlayerController(this);
         Sprite = (AnimatedSprite) GetNode("Sprite");
 
-        RayPivot = (Node2D) GetNode("RayPivot");
+        RayPivot = (Area2D) GetNode("RayPivot");
         
         Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
         MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
@@ -41,8 +41,6 @@ public class Player : KinematicBody2D
         Currency += 5;
 
         Inventory = new Inventory(5);
-        Inventory.Items.Add(Database<Item>.Get("Tools\\BasicHoe"));
-        Inventory.Items.Add(Database<Item>.Get("Tools\\BasicWateringCan"));
 
         TimeNode = (DayNight) GetNode("DayNight");
     }
@@ -62,7 +60,22 @@ public class Player : KinematicBody2D
         
         //GD.Print(Currency);
     }
-    
+
+    public override void _Input(InputEvent @event)
+    {
+        // Dropping Items
+        if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Items.Count)
+        {
+            var Item = (ItemEntity) ((PackedScene)GD.Load("res://src/Items/ItemEntity.tscn")).Instance();
+            
+            Item.CurrentItem = Inventory[Inventory.HeldSlot];
+            Inventory.Remove(Inventory[Inventory.HeldSlot]);
+            Item.Position = Position;
+            
+            GetParent().GetNode("Items").AddChild(Item);
+        }
+    }
+
     //TODO: Add Body-Drag Animation
     private void AnimationHandeling()
     {	
@@ -146,19 +159,36 @@ public class Player : KinematicBody2D
 
     private void RayCasting()
     {
-        foreach (RayCast2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
+        
+        foreach (Area2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
         {
-            var collidedTile = RayCast.GetCollider();
-
-            if (collidedTile is InteractableTile)
+            
+            bool collided = false;
+            if (RayCast.GetOverlappingAreas().Count > 0)
             {
-                var collidedIntTile = (InteractableTile) collidedTile;
+                var collidedTile = RayCast.GetOverlappingAreas()[0];
 
-                collidedIntTile.OutLine.Visible = true;
-                collidedIntTile.PlayerColliding = true;
-                collidedIntTile.PlayerBody = this;
-                
-                break;
+                switch (collidedTile)
+                {
+                    case InteractableTile T:
+                        var collidedIntTile = T;
+
+                        collidedIntTile.OutLine.Visible = true;
+                        collidedIntTile.PlayerColliding = true;
+                        collidedIntTile.PlayerBody = this;
+                        collided = true;
+                        break;
+
+                    case ItemEntity T:
+                        var Item = T;
+                        Item.PlayerColliding = true;
+                        Item.PlayerBody = this;
+                        collided = true;
+                        break;
+                }
+
+                if (collided) break;
+
             }
         }
     }

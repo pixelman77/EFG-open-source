@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/Tiles/Farm/SellingBooth/SellingBooth.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Bodies/WifesBody/WifesBody.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Items/ItemEntity.tscn" type="PackedScene" id=9]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -190,6 +191,19 @@ position = Vector2( 432, 376 )
 
 [node name="TestCloset" parent="Enviorment" instance=ExtResource( 8 )]
 position = Vector2( 96, 32 )
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="ItemEntity" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 400, 160 )
+ItemID = "Tools\\BasicHoe"
+
+[node name="ItemEntity2" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 432, 160 )
+ItemID = "Tools\\BasicWateringCan"
+
+[node name="ItemEntity3" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 464, 160 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )

@@ -17,16 +17,16 @@ namespace EvilFarmingGame.Items
 
         private static Dictionary<string, Item> Items => new Dictionary<string, Item> {
             // Crops.
-            { "Crops\\TestCrop", new Crop("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", 0, 10) },
-            { "Crops\\TestCrop2", new Crop("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", 1, 20) },
+            { "Crops\\TestCrop", new Crop("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", "Crops\\TestCrop", 10) },
+            { "Crops\\TestCrop2", new Crop("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", "Crops\\TestCrop2", 20) },
 
             // Seeds.
-            { "Seeds\\TestSeed", new Seed("Test Seed", "res://src/Items/Seeds/Test Seed/Texture.png", "A Simple seed used for testing and debugging purposes", 0, "TestPlant", 5) },
-            { "Seeds\\TestSeed2", new Seed("Test Seed2", "res://src/Items/Seeds/Test Seed2/Texture.png", "A Simple seed used for testing and debugging purposes", 1, "TestPlant2", 10) },
+            { "Seeds\\TestSeed", new Seed("Test Seed", "res://src/Items/Seeds/Test Seed/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed", "TestPlant", 5) },
+            { "Seeds\\TestSeed2", new Seed("Test Seed2", "res://src/Items/Seeds/Test Seed2/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed2", "TestPlant2", 10) },
 
             // Tools.
-            { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", 0, ToolTypes.Hoe) },
-            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", 1, ToolTypes.WateringCan) }
+            { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", "Tools\\BasicHoe", ToolTypes.Hoe) },
+            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan) }
         };
 
         private static Dictionary<string, Plant> Plants => new Dictionary<string, Plant> {

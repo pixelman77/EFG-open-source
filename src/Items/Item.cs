@@ -8,12 +8,12 @@ namespace EvilFarmingGame.Items
 		public string Name;
 		public string IconPath;
 		public string Description;
-		public int ID;
+		public string ID;
 		public Texture Icon;
 
 		public float Price;
 
-		public Item(string Name, string IconPath, string Description, int ID, float Price = 0) //Constructor with selling-price
+		public Item(string Name, string IconPath, string Description, string ID, float Price = 0) //Constructor with selling-price
 		{
 			this.Name = Name;
 			this.IconPath = IconPath;
@@ -27,7 +27,7 @@ namespace EvilFarmingGame.Items
 
 	public class Crop : Item
 	{
-		public Crop(string Name, string IconPath, string Description, int ID, float Price = 0) 
+		public Crop(string Name, string IconPath, string Description, string ID, float Price = 0) 
 			: base(Name, IconPath, Description, ID, Price) { }
 	}
 
@@ -35,7 +35,7 @@ namespace EvilFarmingGame.Items
 	{
 		public string PlantID { get; }
 
-		public Seed(string Name, string IconPath, string Description, int ID, string plantID, float Price = 0) 
+		public Seed(string Name, string IconPath, string Description, string ID, string plantID, float Price = 0) 
 			: base(Name, IconPath, Description, ID, Price)
 		{
 			PlantID = plantID;
@@ -46,7 +46,7 @@ namespace EvilFarmingGame.Items
 	{
 		public ToolTypes Type { get; }
 
-		public Tool(string Name, string IconPath, string Description, int ID, ToolTypes type, float Price = 0) 
+		public Tool(string Name, string IconPath, string Description, string ID, ToolTypes type, float Price = 0) 
 			: base(Name, IconPath, Description, ID, Price)
 		{
 			Type = type; 

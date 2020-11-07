@@ -25,6 +25,7 @@
         <e p="Items" t="Include">
           <e p="Database.cs" t="Include" />
           <e p="Item.cs" t="Include" />
+          <e p="ItemEntity.cs" t="Include" />
         </e>
         <e p="Player" t="Include">
           <e p="Inventory.cs" t="Include" />

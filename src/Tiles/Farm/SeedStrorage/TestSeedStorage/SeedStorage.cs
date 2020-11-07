@@ -21,7 +21,7 @@ public class SeedStorage : InteractableTile
 
             if (Input.IsActionJustPressed("Player_Action"))
             {
-                if ((PlayerBody.Currency >= CurrentSeed.Price) && (PlayerBody.Inventory.Items.Count <= PlayerBody.Inventory.Items.Capacity))
+                if ((PlayerBody.Currency >= CurrentSeed.Price) && (PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity))
                 {
                     PlayerBody.Currency -= CurrentSeed.Price;
                     PlayerBody.Inventory.Gain(CurrentSeed);
