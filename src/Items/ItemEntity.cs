@@ -29,7 +29,7 @@ public class ItemEntity : Area2D
         }
 
         ItemSprite = (Sprite) GetNode("Sprite");
-        Outline = (Sprite) GetNode("Outline");
+        Outline = (Sprite) GetNode("OutLine");
         ItemSprite.Texture = CurrentItem.Icon;
     }
 

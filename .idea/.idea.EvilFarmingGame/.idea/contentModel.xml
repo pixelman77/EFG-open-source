@@ -14,8 +14,17 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
         <e p="Bodies" t="Include">
+          <e p="NPC's" t="Include">
+            <e p="NPC.cs" t="Include" />
+          </e>
           <e p="WifesBody" t="Include">
             <e p="WifesBody.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Dialogue" t="Include">
+          <e p="Template.json" t="Include" />
+          <e p="TestDialogue" t="Include">
+            <e p="TestNPC.json" t="Include" />
           </e>
         </e>
         <e p="Enviorments" t="Include">
@@ -64,6 +73,9 @@
           <e p="InteractableTile.cs" t="Include" />
         </e>
         <e p="UI" t="Include">
+          <e p="DialougeBox" t="Include">
+            <e p="Dialogue.cs" t="Include" />
+          </e>
           <e p="Inventory" t="Include">
             <e p="InventorySlot.cs" t="Include" />
           </e>

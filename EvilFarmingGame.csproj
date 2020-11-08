@@ -13,10 +13,12 @@
     <Deterministic>false</Deterministic>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Bodies\NPC's\NPC.cs" />
     <Compile Include="src\Bodies\WifesBody\WifesBody.cs" />
     <Compile Include="src\Enviorments\DayNight.cs" />
     <Compile Include="src\Items\Item.cs" />
@@ -35,9 +37,14 @@
     <Compile Include="src\Tiles\Home\Storage\Storage.cs" />
     <Compile Include="src\Tiles\Home\Storage\TestStorage\TestCloset.cs" />
     <Compile Include="src\Tiles\InteractableTile.cs" />
+    <Compile Include="src\UI\DialougeBox\Dialogue.cs" />
     <Compile Include="src\UI\Inventory\InventorySlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\UI\Inventory" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\Dialogue\Template.json" />
+    <Content Include="src\Dialogue\TestDialogue\TestNPC.json" />
   </ItemGroup>
 </Project>

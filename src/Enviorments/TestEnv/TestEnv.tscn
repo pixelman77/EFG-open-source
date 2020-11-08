@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://src/Bodies/WifesBody/WifesBody.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Items/ItemEntity.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=10]
+[ext_resource path="res://src/Bodies/NPC's/NPC.tscn" type="PackedScene" id=11]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -192,6 +194,20 @@ position = Vector2( 432, 376 )
 [node name="TestCloset" parent="Enviorment" instance=ExtResource( 8 )]
 position = Vector2( 96, 32 )
 
+[node name="NPC" parent="Enviorment" instance=ExtResource( 11 )]
+position = Vector2( 176, 48 )
+DialogueFiles = PoolStringArray( "res://src/Dialogue/TestDialogue/TestNPC.json" )
+DialogueAmount = 1
+HasDialogue = true
+
+[node name="Sprite" type="Sprite" parent="Enviorment/NPC"]
+modulate = Color( 0.552941, 0.105882, 0, 1 )
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviorment/NPC"]
+position = Vector2( 8, 0 )
+polygon = PoolVector2Array( -24, -16, 8, -16, 8, 16, -24, 16 )
+
 [node name="Items" type="Node2D" parent="."]
 
 [node name="ItemEntity" parent="Items" instance=ExtResource( 9 )]
@@ -209,3 +225,5 @@ position = Vector2( 464, 160 )
 position = Vector2( 432, 208 )
 
 [editable path="Enviorment/TestSeedStorage2"]
+
+[editable path="Enviorment/NPC"]

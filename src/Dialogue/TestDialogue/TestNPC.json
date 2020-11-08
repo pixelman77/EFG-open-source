@@ -1,0 +1,13 @@
+{
+  "Dialogue" : {
+    "0" : {
+      "Text" : "Heya, this is a test of the dialogue system."
+    },
+    "1" : {
+      "Text" : "This is being read from a json file."
+    }
+  },
+  "Name" : "Jerry",
+  "Amount" : 1,
+  "NextDialogue" : true
+}

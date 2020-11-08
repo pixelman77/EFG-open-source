@@ -172,19 +172,26 @@ public class Player : KinematicBody2D
                 {
                     case InteractableTile T:
                         var collidedIntTile = T;
-
                         collidedIntTile.OutLine.Visible = true;
                         collidedIntTile.PlayerColliding = true;
                         collidedIntTile.PlayerBody = this;
                         collided = true;
                         break;
-
+                    
                     case ItemEntity T:
                         var Item = T;
                         Item.PlayerColliding = true;
                         Item.PlayerBody = this;
                         collided = true;
                         break;
+                    
+                    case NPC T:
+                        var npc = T;
+                        npc.PlayerColliding = true;
+                        npc.PlayerBody = this;
+                        collided = true;
+                        break;
+                        
                 }
 
                 if (collided) break;
