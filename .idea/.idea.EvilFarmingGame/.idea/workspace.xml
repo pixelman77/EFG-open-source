@@ -20,28 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbb8b868-0f77-44a7-ac0f-1c55f6e3089a" name="Default Changelist" comment="Add fastforward function">
-      <change afterPath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.tscn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Dialogue/Template.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Dialogue/TestDialogue/TestNPC.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fonts/pixeldroidBoticRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/DialogueBox.tscn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Speak icon/Texture1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Speak icon/Texture1.png.import" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Speak icon/Texture2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Speak icon/Texture2.png.import" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Texture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Texture.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvilFarmingGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EvilFarmingGame.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/ItemEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/ItemEntity.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemEntity.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/DialougeBox/DialogueBox.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialougeBox/DialogueBox.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,31 +88,31 @@
         <option value="$PROJECT_DIR$/src/WindowControl.cs" />
         <option value="$PROJECT_DIR$/src/Tiles/Tile.cs" />
         <option value="$PROJECT_DIR$/src/Enviorments/DayNight.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" />
         <option value="$PROJECT_DIR$/src/Items/Crops/Crops.cs" />
         <option value="$PROJECT_DIR$/src/Tiles/Farm/Plants/Plants.cs" />
         <option value="$PROJECT_DIR$/src/Items/Tools/Tools.cs" />
         <option value="$PROJECT_DIR$/src/Items/Seeds/Seeds.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" />
         <option value="$PROJECT_DIR$/src/Bodies/WifesBody/WifesBody.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" />
         <option value="$PROJECT_DIR$/src/Player/Inventory.cs" />
         <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/Closet.cs" />
         <option value="$PROJECT_DIR$/src/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/src/GameControl.cs" />
         <option value="$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" />
         <option value="$PROJECT_DIR$/src/Items/Item.cs" />
         <option value="$PROJECT_DIR$/src/Items/Database.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" />
         <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
         <option value="$PROJECT_DIR$/src/Dialogue/Template.json" />
-        <option value="$PROJECT_DIR$/src/Player/Player.cs" />
         <option value="$PROJECT_DIR$/src/Dialogue/TestDialogue/TestNPC.json" />
-        <option value="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
         <option value="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" />
+        <option value="$PROJECT_DIR$/src/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" />
+        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" />
       </list>
     </option>
   </component>
@@ -235,7 +230,8 @@
       <workItem from="1600184454269" duration="835000" />
       <workItem from="1602255864581" duration="4084000" />
       <workItem from="1604739826880" duration="16590000" />
-      <workItem from="1604850357733" duration="782000" />
+      <workItem from="1604850357733" duration="2922000" />
+      <workItem from="1604937388453" duration="2770000" />
     </task>
     <task id="LOCAL-00001" summary="Modified plant growth system and added the ability to collect the grown crop">
       <created>1595576441196</created>
@@ -375,6 +371,10 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state width="939" height="256" key="GridCell.Tab.3.right/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
+    <state x="100" y="200" width="1720" height="832" key="VCS.FileHistoryDialog" timestamp="1604938984665">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="100" y="200" width="1720" height="832" key="VCS.FileHistoryDialog/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1604938984665" />
     <state x="753" y="199" width="404" height="668" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597001457036">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

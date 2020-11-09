@@ -4,14 +4,8 @@ using EvilFarmingGame.Tiles;
 
 public class Bed : InteractableTile
 {
-    public override void _Ready()
-    {
-        InitTile();
-    }
-
     public override void _PhysicsProcess(float delta)
     {
-
         if (Input.IsActionJustPressed("Player_Action") && PlayerColliding)
         {
             if (PlayerBody != null)
@@ -25,8 +19,7 @@ public class Bed : InteractableTile
 
         if (PlayerBody != null && !PlayerBody.TimeNode.AnimationPlayer.IsPlaying() && PlayerColliding)
             PlayerBody.TimeNode.AnimationPlayer.Play("Day-Night");
-
-        UpdateTile();
+        base._PhysicsProcess(delta);
     }
 
     private void Sleep()

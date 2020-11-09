@@ -111,24 +111,6 @@ editor_draw_drag_margin = true
 scale = Vector2( 1.5, 1.5 )
 transform = Transform2D( 1.5, 0, 0, 1.5, 0, 0 )
 
-[node name="Inventory" type="Node2D" parent="UI"]
-position = Vector2( 714.667, 496 )
-
-[node name="InventorySlot1" parent="UI/Inventory" instance=ExtResource( 2 )]
-position = Vector2( -186.667, -85.3333 )
-
-[node name="InventorySlot2" parent="UI/Inventory" instance=ExtResource( 2 )]
-position = Vector2( -122.667, -85.3333 )
-
-[node name="InventorySlot3" parent="UI/Inventory" instance=ExtResource( 2 )]
-position = Vector2( -58.6667, -85.3333 )
-
-[node name="InventorySlot4" parent="UI/Inventory" instance=ExtResource( 2 )]
-position = Vector2( 5.33331, -85.3333 )
-
-[node name="InventorySlot5" parent="UI/Inventory" instance=ExtResource( 2 )]
-position = Vector2( 69.3333, -85.3333 )
-
 [node name="ControlUI" type="Control" parent="UI"]
 margin_left = -250.667
 margin_top = -218.667
@@ -193,6 +175,24 @@ __meta__ = {
 [node name="MessageTimer" type="Timer" parent="UI/ControlUI"]
 wait_time = 2.0
 one_shot = true
+
+[node name="Inventory" type="Node2D" parent="UI/ControlUI"]
+position = Vector2( 965.334, 714.667 )
+
+[node name="InventorySlot1" parent="UI/ControlUI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( -186.667, -85.3333 )
+
+[node name="InventorySlot2" parent="UI/ControlUI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( -122.667, -85.3333 )
+
+[node name="InventorySlot3" parent="UI/ControlUI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( -58.6667, -85.3333 )
+
+[node name="InventorySlot4" parent="UI/ControlUI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( 5.33331, -85.3333 )
+
+[node name="InventorySlot5" parent="UI/ControlUI/Inventory" instance=ExtResource( 2 )]
+position = Vector2( 69.3333, -85.3333 )
 
 [node name="RayPivot" type="Area2D" parent="." groups=[
 "PlayerRays",

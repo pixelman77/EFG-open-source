@@ -9,14 +9,14 @@ namespace EvilFarmingGame.Tiles
         public Sprite OutLine;
         public bool PlayerColliding = false;
         public global::Player PlayerBody;
-        
-        public void InitTile()
+
+        public override void _Ready()
         {
             OutLine = (Sprite) GetNode("OutLine");
             OutLine.Visible = false;
         }
 
-        public void UpdateTile()
+        public override void _PhysicsProcess(float delta)
         {
             OutLine.Visible = false;
             PlayerColliding = false;

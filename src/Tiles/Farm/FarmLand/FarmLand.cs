@@ -29,7 +29,7 @@ public class FarmLand : InteractableTile
 
     public override void _Ready()
     {
-        InitTile();
+        base._Ready();
         
         Sprite = (AnimatedSprite) GetNode("Sprite");
         
@@ -62,8 +62,6 @@ public class FarmLand : InteractableTile
                 PlantGrown.Show();
                 PlantSeedling.Hide();
                 break;
-            default:
-                break;
         }
 
         if (CurrentPlant == null)
@@ -76,8 +74,7 @@ public class FarmLand : InteractableTile
             PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
             PlantGrown.Texture = CurrentPlant.GrownTexture;
         }
-
-        UpdateTile();
+        base._PhysicsProcess(delta);
     }
 
     public override void _Input(InputEvent @event)

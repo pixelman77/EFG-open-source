@@ -18,6 +18,8 @@ public class Player : KinematicBody2D
     public Node2D RayPivot;
     public static Vector2 Velocity;
 
+    public Control UI;
+    
     private RichTextLabel Clock;
     public DayNight TimeNode;
 
@@ -32,6 +34,8 @@ public class Player : KinematicBody2D
         Sprite = (AnimatedSprite) GetNode("Sprite");
 
         RayPivot = (Area2D) GetNode("RayPivot");
+
+        UI = (Control) GetNode("UI/ControlUI");
         
         Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
         MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
@@ -126,16 +130,16 @@ public class Player : KinematicBody2D
     {
         for (int i = 0; i < Inventory.Items.Count; i++)
         {
-            Sprite Icon = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Selection");
+            Sprite Icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
+            Sprite SelectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection");
 
             if (Inventory[i] != null) Icon.Texture = Inventory[i].Icon;
         }
 
         for (int i = 0; i < Inventory.Items.Capacity; i++)
         {
-            Sprite Icon = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/Inventory/InventorySlot{i + 1}/Selection");
+            Sprite Icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
+            Sprite SelectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection");
 
             if (i == Inventory.HeldSlot)
                 SelectBox.Show();

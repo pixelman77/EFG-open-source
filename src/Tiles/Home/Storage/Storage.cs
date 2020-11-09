@@ -8,20 +8,15 @@ namespace EvilFarmingGame.Tiles.Home.Storage
     {
         public Inventory InternalInventory;
 
-        protected int Capacity = 10;
+        [Export()] int Capacity = 9;
         
-        protected void InitStorage()
+        public override void _Ready()
         {
-            InitTile();
-            
+            base._Ready();
+            GD.Print(Capacity);
             InternalInventory = new Inventory(Capacity);
         }
 
-        protected void UpdateStorage()
-        {
-            UpdateTile();
-        }
-        
         protected void InventoryHandling()
         {
             // Internal-InventoryHandling

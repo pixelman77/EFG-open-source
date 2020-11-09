@@ -36,6 +36,7 @@ public class NPC : Area2D
 
         if (!DialogueBox.IsShown && PlayerColliding)
         {
+            PlayerBody.UI.Show();
             PlayerBody.CanMove = true;
         }
     }

@@ -8,11 +8,6 @@ public class SeedStorage : InteractableTile
 {
     [Export] public string SeedID;
 
-    public override void _Ready()
-    {
-        InitTile();
-    }
-
     public override void _PhysicsProcess(float delta)
     {
         if (PlayerColliding)
@@ -28,7 +23,7 @@ public class SeedStorage : InteractableTile
                 }
             }
         }
-        UpdateTile();
+        base._PhysicsProcess(delta);
     }
 
     

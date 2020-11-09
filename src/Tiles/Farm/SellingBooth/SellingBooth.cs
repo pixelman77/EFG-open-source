@@ -7,15 +7,11 @@ public class SellingBooth : InteractableTile
 {
     public Item HeldItem;
 
-    public override void _Ready()
-    {
-	    InitTile();
-    }
-
     public override void _PhysicsProcess(float delta)
     {
-	    if(PlayerColliding && Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
+        if(PlayerColliding && Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
 	    {
+            GD.Print("Sell");
 		    HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
             if (HeldItem is Crop crop) {
@@ -23,7 +19,7 @@ public class SellingBooth : InteractableTile
                 PlayerBody.Inventory.Remove(HeldItem);
             }
         }
-	    UpdateTile();
+        base._PhysicsProcess(delta);
     }
 
 }

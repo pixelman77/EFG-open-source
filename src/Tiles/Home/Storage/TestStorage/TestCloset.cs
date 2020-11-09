@@ -9,10 +9,10 @@ public class TestCloset : Storage
     
     public override void _Ready()
     {
-        Capacity = 10;
-        InitStorage();
+        base._Ready();
         
         UI = (Control)GetNode("UI/Control");
+        UI.Hide();
     }
 
     public override void _Process(float delta)
@@ -25,17 +25,24 @@ public class TestCloset : Storage
         if (Input.IsActionJustPressed("Player_Action") && PlayerColliding)
         {
             UI.Show();
-            
-            if(PlayerBody != null) PlayerBody.CanMove = false;
+
+            if (PlayerBody != null)
+            {
+                PlayerBody.UI.Hide();
+                PlayerBody.CanMove = false;
+            }
         }
 
         if (Input.IsActionJustPressed("Window_Exit"))
         {
             UI.Hide();
-            if(PlayerBody != null) PlayerBody.CanMove = true;
+            if (PlayerBody != null)
+            {
+                PlayerBody.UI.Show();
+                PlayerBody.CanMove = true;
+            }
         }
-        
-        UpdateStorage();
+        base._PhysicsProcess(delta);
     }
 
 }

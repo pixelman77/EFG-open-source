@@ -37,12 +37,20 @@ public class Dialogue : CanvasLayer
     {
         if (IsShown)
         {
-            if(PlayerBody != null) PlayerBody.CanMove = false;
+            if (PlayerBody != null)
+            {
+                PlayerBody.UI.Hide();
+                PlayerBody.CanMove = false;
+            }
             ControlNode.Visible = true;
+            
         }
         else
         {
-            if(PlayerBody != null) PlayerBody.CanMove = true;
+            if (PlayerBody != null)
+            {
+                PlayerBody.CanMove = true;
+            }
             ControlNode.Visible = false;
         }
     }
@@ -80,8 +88,7 @@ public class Dialogue : CanvasLayer
     public static dynamic ReadJson(string path)
     {
         var file = new File();
-        try
-        {
+        try {
             file.Open(path, File.ModeFlags.Read);
         }
         catch { throw new Exception("Invalid JSON-file"); }
@@ -109,13 +116,11 @@ public class Dialogue : CanvasLayer
             else
             {
                 IsShown = false;
-                try
-                {
+                try {
                     PlayerBody.Inventory.Gain(Database<Item>.Get(
                         ReadJson(DialogueFiles[CurrentFile])["Item"]));
                 }
-                catch
-                {
+                catch {
                     if (CurrentState == State.Announcement)
                     {
                         PlayerBody.CanMove = true;
