@@ -217,7 +217,6 @@ ItemID = "Tools\\BasicWateringCan"
 
 [node name="ItemEntity3" parent="Items" instance=ExtResource( 9 )]
 position = Vector2( 464, 160 )
-ItemID = "Seeds\\TestCrop"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )
