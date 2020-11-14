@@ -24,19 +24,8 @@
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/DialougeBox/DialogueBox.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialougeBox/DialogueBox.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/ItemEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemEntity.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +89,6 @@
         <option value="$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" />
         <option value="$PROJECT_DIR$/src/Items/Item.cs" />
         <option value="$PROJECT_DIR$/src/Items/Database.cs" />
-        <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
         <option value="$PROJECT_DIR$/src/Dialogue/Template.json" />
         <option value="$PROJECT_DIR$/src/Dialogue/TestDialogue/TestNPC.json" />
         <option value="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" />
@@ -113,6 +101,7 @@
         <option value="$PROJECT_DIR$/src/Player/Player.cs" />
         <option value="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" />
         <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" />
+        <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
       </list>
     </option>
   </component>
@@ -232,6 +221,7 @@
       <workItem from="1604739826880" duration="16590000" />
       <workItem from="1604850357733" duration="2922000" />
       <workItem from="1604937388453" duration="2770000" />
+      <workItem from="1605347971672" duration="716000" />
     </task>
     <task id="LOCAL-00001" summary="Modified plant growth system and added the ability to collect the grown crop">
       <created>1595576441196</created>

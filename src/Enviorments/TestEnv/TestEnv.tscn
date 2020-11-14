@@ -196,9 +196,6 @@ position = Vector2( 96, 32 )
 
 [node name="NPC" parent="Enviorment" instance=ExtResource( 11 )]
 position = Vector2( 176, 48 )
-DialogueFiles = PoolStringArray( "res://src/Dialogue/TestDialogue/TestNPC.json" )
-DialogueAmount = 1
-HasDialogue = true
 
 [node name="Sprite" type="Sprite" parent="Enviorment/NPC"]
 modulate = Color( 0.552941, 0.105882, 0, 1 )
@@ -220,6 +217,7 @@ ItemID = "Tools\\BasicWateringCan"
 
 [node name="ItemEntity3" parent="Items" instance=ExtResource( 9 )]
 position = Vector2( 464, 160 )
+ItemID = "Seeds\\TestCrop"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )
