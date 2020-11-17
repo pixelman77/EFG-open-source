@@ -11,7 +11,9 @@ public class FarmLand : InteractableTile
     private Plant CurrentPlant;
     private Sprite PlantSeedling;
     private Sprite PlantGrown;
-    private Timer PlantGrownTimer;
+
+    private int PlantedDay;
+    private int PlantedHour;
 
     private Item HeldItem;
 
@@ -35,8 +37,7 @@ public class FarmLand : InteractableTile
         
         PlantSeedling = (Sprite) GetNode("Plant/Seedling");
         PlantGrown = (Sprite) GetNode("Plant/Grown");
-
-        PlantGrownTimer = (Timer) GetNode("Timers/PlantGrowthTimer");
+        
     }
 
     public override void _PhysicsProcess(float delta)
@@ -74,12 +75,17 @@ public class FarmLand : InteractableTile
             PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
             PlantGrown.Texture = CurrentPlant.GrownTexture;
         }
+        
+        if (PlayerBody != null && CurrentPlant != null && PlayerBody.TimeNode.Day == PlantedDay+CurrentPlant.GrowthDuration && PlayerBody.TimeNode.Hour == PlantedHour)
+        {
+            State = states.Grown;
+        }
+
         base._PhysicsProcess(delta);
     }
 
     public override void _Input(InputEvent @event)
     {
-
         if (PlayerColliding)
         {
             if (Input.IsActionJustPressed("Player_Action"))
@@ -97,7 +103,6 @@ public class FarmLand : InteractableTile
                         else if (tool.Type == ToolTypes.WateringCan && State == states.Planted) 
                         {
                             State = states.Watered;
-                            PlantGrownTimer.Start();
                         }
                     }
                     else if (HeldItem is Seed seed) 
@@ -106,12 +111,14 @@ public class FarmLand : InteractableTile
                         {
                             State = states.Planted;
                             CurrentPlant = Database<Plant>.Get(seed.PlantID);
+                            PlantedDay = PlayerBody.TimeNode.Day;
+                            PlantedHour = PlayerBody.TimeNode.Hour;
                             PlayerBody.Inventory.Remove(HeldItem);
                         }
                     }
                 }
 
-                if (PlayerBody != null && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
+                if (PlayerBody != null && CurrentPlant != null && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
                 {
                     if (State == states.Grown)
                     {
@@ -122,12 +129,6 @@ public class FarmLand : InteractableTile
                 }
             }
         }
+        GD.Print();
     }
-
-    public void OnPlantGrown()
-    {
-        State = states.Grown;
-    }
-    
-    
 }

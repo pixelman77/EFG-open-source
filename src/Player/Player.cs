@@ -24,9 +24,8 @@ public class Player : KinematicBody2D
     public DayNight TimeNode;
 
     private RichTextLabel MessageLabel;
+    private Dialogue DialogueBox;
     private RichTextLabel CurrencyLabel;
-
-    private ResourcePreloader Loader = new ResourcePreloader();
 
     public override void _Ready()
     {
@@ -38,6 +37,7 @@ public class Player : KinematicBody2D
         UI = (Control) GetNode("UI/ControlUI");
         
         Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
+        DialogueBox = (Dialogue) GetNode("DialogueBox");
         MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
         MessageLabel.BbcodeText = "";
         
@@ -45,8 +45,11 @@ public class Player : KinematicBody2D
         Currency += 5;
 
         Inventory = new Inventory(5);
-
-        TimeNode = (DayNight) GetNode("DayNight");
+        
+        if(Owner.HasNode("DayNight"))
+            TimeNode = (DayNight) Owner.GetNode("DayNight");
+        else
+            GD.Print("WARNING: No DayNight Node, day-night system won't be implemented in scene. (Crops won't grow, daylight amount won't change, etc.)");
     }
 
     public override void _PhysicsProcess(float delta)
@@ -60,7 +63,7 @@ public class Player : KinematicBody2D
         InventoryHandling();
         PlayerLogic();
         RayCasting();
-        TimeHandling();
+        if(TimeNode != null) TimeHandling();
         
         //GD.Print(Currency);
     }
@@ -195,7 +198,6 @@ public class Player : KinematicBody2D
                         npc.PlayerBody = this;
                         collided = true;
                         break;
-                        
                 }
 
                 if (collided) break;
@@ -206,24 +208,27 @@ public class Player : KinematicBody2D
 
     private void TimeHandling()
     {
-        if(TimeNode.Afternoon)
-            Clock.BbcodeText = $"{TimeNode.TimeOfDay -12} PM";
-        else
-            Clock.BbcodeText = $"{TimeNode.TimeOfDay} AM";
+        Clock.BbcodeText = TimeNode.Afternoon
+            ? $"Day: {TimeNode.Day}, {TimeNode.Hour}:{TimeNode.Minute:00} PM"
+            : $"Day: {TimeNode.Day}, {TimeNode.Hour}:{TimeNode.Minute:00} AM";
     }
 
     private void PlayerLogic()
     {
         if (CurrencyLabel != null)
             CurrencyLabel.BbcodeText = $"{Currency}G";
+
+        if (!DialogueBox.IsShown && !UI.Visible)
+        {
+            CanMove = true;
+        }
     }
 
     public void MessagePlayer(string Message)
     {
-        var Timer = (Timer) GetNode("UI/ControlUI/MessageTimer");
-
-        MessageLabel.BbcodeText = Message;
-        Timer.Start();
+        DialogueBox.PlayerBody = this; 
+        if(!DialogueBox.IsShown && CanMove)
+            DialogueBox.Announce(Message);
     }
 
     public void OnMessageTimer()

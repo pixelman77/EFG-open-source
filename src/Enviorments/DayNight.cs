@@ -5,20 +5,44 @@ public class DayNight : Node2D
 {
     public AnimationPlayer AnimationPlayer;
 
-    public bool Afternoon = true;
-    [Export] public int TimeOfDay = 12;
+    public bool Afternoon = false;
+    public int Day = 1;
+    [Export] public int Hour = 0;
+    [Export] public int Minute = 0;
     
     public override void _Ready()
     {
-        this.AnimationPlayer = (AnimationPlayer) GetNode("AnimationPlayer");
-        AnimationPlayer.Play("Day-Night");
+        //AnimationPlayer = (AnimationPlayer) GetNode("AnimationPlayer");
+        //AnimationPlayer.Play("Day-Night");
     }
 
     public override void _Process(float delta)
     {
-        if (TimeOfDay > 12)
+        if(Afternoon && Hour > 11)
+        {
+            NextDay();
+        }
+        else if(Hour > 12)
+        {
             Afternoon = true;
-        else
-            Afternoon = false;
+            Hour = 1;
+        }
+    }
+
+    private void NextMinute()
+    {
+        Minute++;
+        if (Minute == 60)
+        {
+            Minute = 0;
+            Hour++;
+        }
+    }
+
+    public void NextDay()
+    {
+        Afternoon = false;
+        Hour = 0;
+        Day++;
     }
 }

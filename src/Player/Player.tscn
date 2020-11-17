@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Fonts/pixeldroidBoticRegular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://src/Enviorments/Day-night.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
 [ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=6]
@@ -17,6 +18,7 @@
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_10.png" type="Texture" id=16]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_9.png" type="Texture" id=17]
 [ext_resource path="res://src/Player/InventoryDetails.cs" type="Script" id=18]
+[ext_resource path="res://src/UI/DialougeBox/DialogueBox.tscn" type="PackedScene" id=19]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
@@ -66,8 +68,8 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=3]
-size = 64
-font_data = ExtResource( 5 )
+size = 32
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 18
@@ -85,7 +87,9 @@ height = 16.0
 radius = 8.00002
 height = 0.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 script = ExtResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -121,13 +125,14 @@ __meta__ = {
 }
 
 [node name="Clock" type="RichTextLabel" parent="UI/ControlUI"]
-margin_left = 944.0
-margin_top = 568.0
-margin_right = 1104.0
-margin_bottom = 640.0
+margin_left = 853.0
+margin_top = 592.0
+margin_right = 1101.0
+margin_bottom = 623.0
 custom_fonts/normal_font = SubResource( 3 )
-bbcode_text = "12 AM"
-text = "12 AM"
+bbcode_enabled = true
+bbcode_text = "Day 1, 12:00 AM"
+text = "Day 1, 12:00 AM"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -217,4 +222,6 @@ shape = SubResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )
+
+[node name="DialogueBox" parent="." instance=ExtResource( 19 )]
 [connection signal="timeout" from="UI/ControlUI/MessageTimer" to="." method="OnMessageTimer"]

@@ -16,8 +16,14 @@ public class GameControl : Node2D
         //GetTree().Quit();
 
         if (Input.IsActionPressed("Game_FastForward") && Debugging)
-            Engine.TimeScale = 15;
+            Engine.TimeScale = 60;
         else
             Engine.TimeScale = 1;
+
+        if (Input.IsActionJustPressed("Debug_DayIncrease"))
+        {
+            var timeNode = (DayNight) ((Player)GetTree().GetNodesInGroup("Player")[0]).TimeNode;
+            timeNode.NextDay();
+        }
     }
 }

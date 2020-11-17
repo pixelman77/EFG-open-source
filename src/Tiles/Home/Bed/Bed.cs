@@ -4,28 +4,23 @@ using EvilFarmingGame.Tiles;
 
 public class Bed : InteractableTile
 {
-    public override void _PhysicsProcess(float delta)
+    public override void _Input(InputEvent @Event)
     {
         if (Input.IsActionJustPressed("Player_Action") && PlayerColliding)
         {
             if (PlayerBody != null)
             {
-                if (PlayerBody.TimeNode.TimeOfDay <= 17 && PlayerBody.TimeNode.TimeOfDay >= 6)
+                if (PlayerBody.TimeNode.Hour <= 17 && PlayerBody.TimeNode.Hour >= 6)
                     Sleep();
                 else
-                    PlayerBody.MessagePlayer("Its  not  a  good  idea  to  sleep  while  the  police  are  out.");
+                    PlayerBody.MessagePlayer("Its not a good idea to sleep while the police are out.");
             }
         }
-
-        if (PlayerBody != null && !PlayerBody.TimeNode.AnimationPlayer.IsPlaying() && PlayerColliding)
-            PlayerBody.TimeNode.AnimationPlayer.Play("Day-Night");
-        base._PhysicsProcess(delta);
     }
 
     private void Sleep()
     {
-        PlayerBody.TimeNode.AnimationPlayer.Stop();
-        PlayerBody.TimeNode.AnimationPlayer.Play("Day-Night");
+        PlayerBody.TimeNode.NextDay();
     }
     
 }

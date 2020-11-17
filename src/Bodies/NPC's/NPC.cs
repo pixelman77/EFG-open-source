@@ -20,7 +20,6 @@ public class NPC : Area2D
     public override void _PhysicsProcess(float delta)
     {
         PlayerColliding = false;
-        GD.Print(PlayerColliding);
     }
 
     public override void _Input(InputEvent @event)

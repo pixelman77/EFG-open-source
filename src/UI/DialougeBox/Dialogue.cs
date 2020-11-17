@@ -68,6 +68,7 @@ public class Dialogue : CanvasLayer
     {
         CurrentState = State.Announcement;
         CurrentDialogue = Announcement;
+        NameLabel.Text = "";
         AmountInFile = 0;
         DisplayDialogue(CurrentDialogue);
     }
@@ -120,11 +121,9 @@ public class Dialogue : CanvasLayer
                     PlayerBody.Inventory.Gain(Database<Item>.Get(
                         ReadJson(DialogueFiles[CurrentFile])["Item"]));
                 }
-                catch {
-                    if (CurrentState == State.Announcement)
-                    {
-                        PlayerBody.CanMove = true;
-                    }
+                catch
+                {
+                    PlayerBody.UI.Visible = true;
                 }
 
             }
