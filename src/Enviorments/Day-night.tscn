@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Enviorments/DayNight.cs" type="Script" id=1]
 
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.194093, 0.299578, 0.518987, 0.71308, 0.805907, 1 )
+colors = PoolColorArray( 0.0470588, 0.0431373, 0.156863, 1, 0.0470588, 0.0431373, 0.156863, 1, 0.74902, 0.454902, 0.239216, 1, 1, 1, 1, 1, 0.74902, 0.454902, 0.239216, 1, 0.0470588, 0.0431373, 0.156863, 1, 0.0470588, 0.0431373, 0.156863, 1 )
+
 [node name="DayNight" type="Node2D"]
 script = ExtResource( 1 )
+SkyGradient = SubResource( 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Enviorments/TestEnv/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=10]
 [ext_resource path="res://src/Bodies/NPC's/NPC.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Enviorments/Day-night.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Tiles/Base/Torch.tscn" type="PackedScene" id=13]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -208,6 +209,10 @@ texture = ExtResource( 10 )
 position = Vector2( 8, 0 )
 polygon = PoolVector2Array( -24, -16, 8, -16, 8, 16, -24, 16 )
 
+[node name="Torch" parent="Enviorment" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 432, 208 )
+
 [node name="Items" type="Node2D" parent="."]
 
 [node name="ItemEntity" parent="Items" instance=ExtResource( 9 )]
@@ -229,3 +234,5 @@ position = Vector2( 432, 208 )
 [editable path="Enviorment/TestSeedStorage2"]
 
 [editable path="Enviorment/NPC"]
+
+[editable path="Enviorment/Torch"]

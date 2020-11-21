@@ -20,24 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbb8b868-0f77-44a7-ac0f-1c55f6e3089a" name="Default Changelist" comment="Add fastforward function">
+      <change afterPath="$PROJECT_DIR$/src/Lights/BigTorch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Lights/BigTorch.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Lights/DetailedTorch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Lights/DetailedTorch.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Lights/Torch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Lights/Torch.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tiles/Base/Torch.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Enviorments/Day-night.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/Day-night.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Enviorments/DayNight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/DayNight.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/Plants/Plant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/Plants/Plant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,6 @@
         <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" />
         <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
         <option value="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" />
-        <option value="$PROJECT_DIR$/src/Enviorments/DayNight.cs" />
         <option value="$PROJECT_DIR$/src/Tiles/Farm/Plants/Plant.cs" />
         <option value="$PROJECT_DIR$/src/Items/Database.cs" />
         <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
@@ -114,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" />
         <option value="$PROJECT_DIR$/src/Player/Player.cs" />
         <option value="$PROJECT_DIR$/src/GameControl.cs" />
+        <option value="$PROJECT_DIR$/src/Enviorments/DayNight.cs" />
       </list>
     </option>
   </component>
@@ -235,7 +232,8 @@
       <workItem from="1604937388453" duration="2770000" />
       <workItem from="1605347971672" duration="7013000" />
       <workItem from="1605373230602" duration="2605000" />
-      <workItem from="1605626858860" duration="2586000" />
+      <workItem from="1605626858860" duration="3197000" />
+      <workItem from="1605988254216" duration="5554000" />
     </task>
     <task id="LOCAL-00001" summary="Modified plant growth system and added the ability to collect the grown crop">
       <created>1595576441196</created>
