@@ -48,9 +48,7 @@ public class DayNight : Node2D
     public void NextDay()
     {
         Afternoon = false;
-        Hour = 0;
-        Minute = 0;
-        MinutesInDay = 0;
+        Hour = Minute = MinutesInDay = 0;
         Day++;
     }
 }

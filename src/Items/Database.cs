@@ -26,9 +26,12 @@ namespace EvilFarmingGame.Items
 
             // Tools.
             { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", "Tools\\BasicHoe", ToolTypes.Hoe) },
-            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan) }
+            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan) },
+            
+            // Placeables.
+            { "Placeable\\Torches\\WoodenTorch", new PlaceableItem("Wooden Torch", "res://src/Items/Placeables/WoodenTorch/Texture.png", "A simple torch made by a stick and some lighter fluid", "Placeable\\WoodenTorch", "res://src/Items/Placeables/WoodenTorch/WoodenTorch.tscn") }
         };
-
+        
         private static Dictionary<string, Plant> Plants => new Dictionary<string, Plant> {
             { "TestPlant",  new Plant("Test Plant", "A Plant used for testing and debugging purposes", 0,
                 "res://src/Tiles/Farm/Plants/TestPlant/Texture1.png",
@@ -53,6 +56,7 @@ namespace EvilFarmingGame.Items
             // The database CREATES dictionaries of items, and then registers them.
             // Therefore the order is important.
             Database<Item>.Register(Items);
+
             Database<Plant>.Register(Plants);
         }
     }

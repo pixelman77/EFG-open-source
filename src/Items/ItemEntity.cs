@@ -31,10 +31,7 @@ public class ItemEntity : Area2D
 		{
 			CurrentItem = Database<Item>.Get(ItemID);
 		}
-		catch
-		{
-			throw new Exception($"Incorrect item-ID set for {nameof(ItemEntity)}");
-		}
+		catch { throw new Exception($"Incorrect item-ID set for {nameof(ItemEntity)}"); }
 		ItemSprite.Texture = CurrentItem.Icon;
 	}
 

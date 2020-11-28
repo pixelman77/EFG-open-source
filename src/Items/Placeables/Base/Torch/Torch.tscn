@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/Tiles/Base/PlacedItem/PlacedItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Items/Placeables/Base/Torch/Torch.cs" type="Script" id=2]
+[ext_resource path="res://src/Items/Placeables/WoodenTorch/Texture3.png" type="Texture" id=3]
+[ext_resource path="res://src/Lights/DetailedTorch2.png" type="Texture" id=4]
+[ext_resource path="res://src/Items/Placeables/WoodenTorch/Texture5.png" type="Texture" id=5]
+[ext_resource path="res://src/Items/Placeables/WoodenTorch/Texture.png" type="Texture" id=6]
+[ext_resource path="res://src/Items/Placeables/WoodenTorch/Texture4.png" type="Texture" id=7]
+[ext_resource path="res://src/Items/Placeables/WoodenTorch/Texture2.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Lit",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Unlit",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Lit"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.75, 0.7, 0.75 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Unlit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Torch" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 1 )
+animation = "Lit"
+frame = 2
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PoolVector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
+
+[node name="Light2D" type="Light2D" parent="." index="3"]
+enabled = false
+texture = ExtResource( 4 )
+texture_scale = 0.75
+color = Color( 0.937255, 0.537255, 0.184314, 1 )
+energy = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/Lit = SubResource( 2 )
+anims/Unlit = SubResource( 3 )

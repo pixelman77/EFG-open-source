@@ -19,7 +19,7 @@
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_9.png" type="Texture" id=17]
 [ext_resource path="res://src/Player/InventoryDetails.cs" type="Script" id=18]
 [ext_resource path="res://src/UI/DialougeBox/DialogueBox.tscn" type="PackedScene" id=19]
-[ext_resource path="res://src/Lights/DetailedTorch.png" type="Texture" id=20]
+[ext_resource path="res://src/Lights/DetailedTorch2.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -218,9 +218,9 @@ polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )
 [node name="DialogueBox" parent="." instance=ExtResource( 19 )]
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 position = Vector2( -3.8147e-06, -3.8147e-06 )
-scale = Vector2( 8, 8 )
 texture = ExtResource( 20 )
-energy = 0.5
+texture_scale = 0.5
 shadow_enabled = true
 [connection signal="timeout" from="UI/ControlUI/MessageTimer" to="." method="OnMessageTimer"]

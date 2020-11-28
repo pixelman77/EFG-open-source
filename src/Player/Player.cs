@@ -64,8 +64,6 @@ public class Player : KinematicBody2D
         PlayerLogic();
         RayCasting();
         if(TimeNode != null) TimeHandling();
-        
-        //GD.Print(Currency);
     }
 
     public override void _Input(InputEvent @event)
@@ -81,6 +79,19 @@ public class Player : KinematicBody2D
             
             GetParent().GetNode("Items").AddChild(Item);
         }
+        
+        // Placing Placeable Items
+        if (Input.IsActionJustPressed("Player_Action") && Inventory.HeldSlot < Inventory.Items.Count &&
+            Inventory[Inventory.HeldSlot] is PlaceableItem item)
+        {
+            var itemBody = (PlacedItem) ((PackedScene)GD.Load(item.ScenePath)).Instance();
+            itemBody.CurrentItem = item;
+            itemBody.Position = Position;
+            
+            GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody);
+            Inventory.Remove(item);
+        }
+
     }
 
     //TODO: Add Body-Drag Animation
@@ -166,10 +177,8 @@ public class Player : KinematicBody2D
 
     private void RayCasting()
     {
-        
         foreach (Area2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
         {
-            
             bool collided = false;
             if (RayCast.GetOverlappingAreas().Count > 0)
             {
@@ -198,6 +207,13 @@ public class Player : KinematicBody2D
                         npc.PlayerBody = this;
                         collided = true;
                         break;
+                    
+                    case PlacedItem T:
+                        var PItem = T;
+                        PItem.PlayerColliding = true;
+                        PItem.PlayerBody = this;
+                        collided = true;
+                        break;
                 }
 
                 if (collided) break;
@@ -218,7 +234,7 @@ public class Player : KinematicBody2D
         if (CurrencyLabel != null)
             CurrencyLabel.BbcodeText = $"{Currency}G";
 
-        if (!DialogueBox.IsShown && !UI.Visible)
+        if (!DialogueBox.IsShown && UI.Visible)
         {
             CanMove = true;
         }
@@ -230,9 +246,5 @@ public class Player : KinematicBody2D
         if(!DialogueBox.IsShown && CanMove)
             DialogueBox.Announce(Message);
     }
-
-    public void OnMessageTimer()
-    {
-        MessageLabel.BbcodeText = "";
-    }
+    
 }

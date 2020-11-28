@@ -6,7 +6,6 @@ namespace EvilFarmingGame.Items
 	public class Item
 	{
 		public string Name;
-		public string IconPath;
 		public string Description;
 		public string ID;
 		public Texture Icon;
@@ -16,12 +15,11 @@ namespace EvilFarmingGame.Items
 		public Item(string Name, string IconPath, string Description, string ID, float Price = 0) //Constructor with selling-price
 		{
 			this.Name = Name;
-			this.IconPath = IconPath;
 			this.Description = Description;
 			this.ID = ID;
 			this.Price = Price;
 
-			this.Icon = (Texture)GD.Load(IconPath);
+			Icon = (Texture)GD.Load(IconPath);
 		}
 	}
 
@@ -51,6 +49,18 @@ namespace EvilFarmingGame.Items
 		{
 			Type = type; 
 		}
+	}
+
+	public class PlaceableItem : Item
+	{
+		public string ScenePath;
+		
+		public PlaceableItem(string Name, string IconPath, string Description, string ID, string ScenePath, float Price = 0) 
+			: base(Name, IconPath, Description, ID, Price)
+		{
+			this.ScenePath = ScenePath;
+		}
+
 	}
 
 	public enum ToolTypes

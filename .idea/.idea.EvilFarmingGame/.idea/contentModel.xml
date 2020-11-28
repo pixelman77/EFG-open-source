@@ -29,12 +29,23 @@
         </e>
         <e p="Enviorments" t="Include">
           <e p="DayNight.cs" t="Include" />
+          <e p="Scene.cs" t="Include" />
         </e>
         <e p="GameControl.cs" t="Include" />
         <e p="Items" t="Include">
           <e p="Database.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="ItemEntity.cs" t="Include" />
+          <e p="Placeables" t="Include">
+            <e p="Base" t="Include">
+              <e p="Torch" t="Include">
+                <e p="Torch.cs" t="Include" />
+              </e>
+            </e>
+            <e p="WoodenTorch" t="Include">
+              <e p="WoodenTorch.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Player" t="Include">
           <e p="Inventory.cs" t="Include" />
@@ -43,6 +54,11 @@
           <e p="PlayerController.cs" t="Include" />
         </e>
         <e p="Tiles" t="Include">
+          <e p="Base" t="Include">
+            <e p="PlacedItem" t="Include">
+              <e p="PlacedItem.cs" t="Include" />
+            </e>
+          </e>
           <e p="Farm" t="Include">
             <e p="FarmLand" t="Include">
               <e p="FarmLand.cs" t="Include" />

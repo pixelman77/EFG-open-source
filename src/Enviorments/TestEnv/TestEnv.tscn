@@ -12,13 +12,15 @@
 [ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=10]
 [ext_resource path="res://src/Bodies/NPC's/NPC.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Enviorments/Day-night.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/Tiles/Base/Torch.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Enviorments/Scene.cs" type="Script" id=14]
 
-[node name="TestEnv" type="Node2D"]
+[node name="Scene" type="Node2D"]
+script = ExtResource( 14 )
+IsCustomisable = true
 
-[node name="Enviorment" type="Node2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="TileMap" type="TileMap" parent="Enviorment"]
+[node name="TileMap" type="TileMap" parent="Environment"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 3
@@ -26,192 +28,187 @@ collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, 0, 0, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 0, 0, 65536, 0, 0, 65537, 2, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 2, 0, 65562, 0, 0, 131072, 0, 0, 131073, 2, 0, 131074, 0, 0, 131075, 3, 0, 131076, 3, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 3, 0, 131095, 3, 0, 131096, 0, 0, 131097, 2, 0, 131098, 0, 0, 196608, 0, 0, 196609, 2, 0, 196610, 0, 0, 196611, 3, 0, 196612, 3, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 3, 0, 196631, 3, 0, 196632, 0, 0, 196633, 2, 0, 196634, 0, 0, 262144, 0, 0, 262145, 2, 0, 262146, 0, 0, 262147, 3, 0, 262148, 3, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 3, 0, 262167, 3, 0, 262168, 0, 0, 262169, 2, 0, 262170, 0, 0, 327680, 0, 0, 327681, 2, 0, 327682, 0, 0, 327683, 3, 0, 327684, 3, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 3, 0, 327703, 3, 0, 327704, 0, 0, 327705, 2, 0, 327706, 0, 0, 393216, 0, 0, 393217, 2, 0, 393218, 0, 0, 393219, 3, 0, 393220, 3, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 3, 0, 393239, 3, 0, 393240, 0, 0, 393241, 2, 0, 393242, 0, 0, 458752, 0, 0, 458753, 2, 0, 458754, 0, 0, 458755, 3, 0, 458756, 3, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 3, 0, 458775, 3, 0, 458776, 0, 0, 458777, 2, 0, 458778, 0, 0, 524288, 0, 0, 524289, 2, 0, 524290, 0, 0, 524291, 3, 0, 524292, 3, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 3, 0, 524311, 3, 0, 524312, 0, 0, 524313, 2, 0, 524314, 0, 0, 589824, 0, 0, 589825, 2, 0, 589826, 0, 0, 589827, 3, 0, 589828, 3, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 3, 0, 589847, 3, 0, 589848, 0, 0, 589849, 2, 0, 589850, 0, 0, 655360, 0, 0, 655361, 2, 0, 655362, 0, 0, 655363, 3, 0, 655364, 3, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 3, 0, 655383, 3, 0, 655384, 0, 0, 655385, 2, 0, 655386, 0, 0, 720896, 0, 0, 720897, 2, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 2, 0, 720922, 0, 0, 786432, 0, 0, 786433, 2, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 2, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 786453, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 786458, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 1376289, 0, 0, 1376290, 0, 0 )
 
-[node name="SellingBooth" parent="Enviorment" instance=ExtResource( 6 )]
+[node name="SellingBooth" parent="Environment" instance=ExtResource( 6 )]
 position = Vector2( 688, 112 )
 
-[node name="TestSeedStorage" parent="Enviorment" instance=ExtResource( 4 )]
+[node name="TestSeedStorage" parent="Environment" instance=ExtResource( 4 )]
 position = Vector2( 408, 56 )
 SeedID = "TestSeed"
 
-[node name="TestSeedStorage2" parent="Enviorment" instance=ExtResource( 4 )]
+[node name="TestSeedStorage2" parent="Environment" instance=ExtResource( 4 )]
 position = Vector2( 456, 56 )
 SeedID = "TestSeed2"
 
-[node name="Sprite" parent="Enviorment/TestSeedStorage2" index="0"]
-modulate = Color( 0.0862745, 0, 0.847059, 1 )
-
-[node name="Farmland" type="Node2D" parent="Enviorment"]
+[node name="Farmland" type="Node2D" parent="Environment"]
 position = Vector2( 32, 0 )
 
-[node name="Row 1" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 1" type="Node2D" parent="Environment/Farmland"]
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 1" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 1" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 1" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 1" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 1" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 1" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 2" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 2" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 255, 0 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 2" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 2" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 2" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 2" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 2" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 2" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 3" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 3" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 0, 80 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 3" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 3" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 3" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 3" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 3" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 3" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 4" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 4" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 255, 80 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 4" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 4" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 4" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 4" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 4" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 4" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 5" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 5" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 0, 152 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 5" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 5" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 5" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 5" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 5" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 5" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 6" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 6" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 255, 152 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 6" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 6" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 6" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 6" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 6" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 6" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 7" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 7" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 0, 232 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 7" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 7" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 7" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 7" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 7" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 7" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Row 8" type="Node2D" parent="Enviorment/Farmland"]
+[node name="Row 8" type="Node2D" parent="Environment/Farmland"]
 position = Vector2( 255, 232 )
 
-[node name="FarmLand" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+[node name="FarmLand" parent="Environment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 206, 80 )
 
-[node name="FarmLand2" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+[node name="FarmLand2" parent="Environment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 239, 80 )
 
-[node name="FarmLand3" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+[node name="FarmLand3" parent="Environment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 272, 80 )
 
-[node name="FarmLand4" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+[node name="FarmLand4" parent="Environment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 305, 80 )
 
-[node name="FarmLand5" parent="Enviorment/Farmland/Row 8" instance=ExtResource( 3 )]
+[node name="FarmLand5" parent="Environment/Farmland/Row 8" instance=ExtResource( 3 )]
 position = Vector2( 338, 80 )
 
-[node name="Bed" parent="Enviorment" instance=ExtResource( 5 )]
+[node name="Bed" parent="Environment" instance=ExtResource( 5 )]
 position = Vector2( 688, 304 )
 rotation = 1.5708
 
-[node name="WifesBody" parent="Enviorment" instance=ExtResource( 7 )]
+[node name="WifesBody" parent="Environment" instance=ExtResource( 7 )]
 position = Vector2( 432, 376 )
 
-[node name="TestCloset" parent="Enviorment" instance=ExtResource( 8 )]
+[node name="TestCloset" parent="Environment" instance=ExtResource( 8 )]
 position = Vector2( 96, 32 )
 
-[node name="NPC" parent="Enviorment" instance=ExtResource( 11 )]
+[node name="NPC" parent="Environment" instance=ExtResource( 11 )]
 position = Vector2( 176, 48 )
 DialogueFiles = PoolStringArray( "res://src/Dialogue/TestDialogue/TestNPC.json" )
 HasDialogue = true
 
-[node name="Sprite" type="Sprite" parent="Enviorment/NPC"]
+[node name="Sprite" type="Sprite" parent="Environment/NPC"]
 modulate = Color( 0.552941, 0.105882, 0, 1 )
 texture = ExtResource( 10 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviorment/NPC"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/NPC"]
 position = Vector2( 8, 0 )
 polygon = PoolVector2Array( -24, -16, 8, -16, 8, 16, -24, 16 )
 
-[node name="Torch" parent="Enviorment" instance=ExtResource( 13 )]
-visible = false
-position = Vector2( 432, 208 )
+[node name="PlacedItems" type="Node2D" parent="Environment"]
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -226,13 +223,11 @@ ItemID = "Tools\\BasicWateringCan"
 [node name="ItemEntity3" parent="Items" instance=ExtResource( 9 )]
 position = Vector2( 464, 160 )
 
+[node name="ItemEntity4" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 432, 128 )
+ItemID = "Placeable\\Torches\\WoodenTorch"
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )
 
 [node name="DayNight" parent="." instance=ExtResource( 12 )]
-
-[editable path="Enviorment/TestSeedStorage2"]
-
-[editable path="Enviorment/NPC"]
-
-[editable path="Enviorment/Torch"]
