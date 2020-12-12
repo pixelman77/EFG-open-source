@@ -74,9 +74,9 @@ public class Player : KinematicBody2D
             var Item = (ItemEntity) ((PackedScene)GD.Load("res://src/Items/ItemEntity.tscn")).Instance();
             
             Item.CurrentItem = Inventory[Inventory.HeldSlot];
-            Inventory.Remove(Inventory[Inventory.HeldSlot]);
             Item.Position = Position;
-            
+            Inventory.Remove(Inventory[Inventory.HeldSlot]);
+
             GetParent().GetNode("Items").AddChild(Item);
         }
         
@@ -96,8 +96,7 @@ public class Player : KinematicBody2D
 
     //TODO: Add Body-Drag Animation
     private void AnimationHandeling()
-    {	
-        
+    {
         if (Input.IsActionPressed("Player_Left") ||
             (Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
             {
