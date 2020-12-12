@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Items/ItemEntity.cs" type="Script" id=1]
 [ext_resource path="res://src/Tiles/OutLine.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Items/Seeds/Test Seed/Texture.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dropped_Anim"
@@ -25,10 +24,11 @@ tracks/0/keys = {
 "ItemEntity",
 ]]
 script = ExtResource( 1 )
+ItemID = "Null"
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
 scale = Vector2( 0.464439, 0.511468 )
-texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Dropped_Anim"

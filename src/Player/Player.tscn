@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Fonts/pixeldroidBoticRegular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://src/Enviorments/Day-night.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
 [ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=6]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_1.png" type="Texture" id=7]
@@ -209,8 +208,6 @@ collision_mask = 0
 position = Vector2( 0, -16 )
 rotation = 3.14159
 shape = SubResource( 6 )
-
-[node name="DayNight" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )

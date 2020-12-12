@@ -30,7 +30,7 @@ public class DayNight : Node2D
             Afternoon = true;
             Hour = 1;
         }
-        LightCanvas.Color = SkyGradient.Interpolate(MinutesInDay*(.0001f*7f));
+        if (LightCanvas != null) LightCanvas.Color = SkyGradient.Interpolate(MinutesInDay*(.0001f*7f));
     }
 
     private void NextMinute()

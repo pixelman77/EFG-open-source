@@ -26,12 +26,20 @@ public class ItemEntity : Area2D
 	{
 		Outline.Visible = PlayerColliding;
 		PlayerColliding = false;
-		
-		try
+
+		if (CurrentItem == null)
 		{
-			CurrentItem = Database<Item>.Get(ItemID);
+			try
+			{
+				CurrentItem = Database<Item>.Get(ItemID);
+			}
+			catch
+			{
+				ItemSprite.Texture = null;
+				throw new Exception($"Incorrect item-ID set for {nameof(ItemEntity)}");
+			}
 		}
-		catch { throw new Exception($"Incorrect item-ID set for {nameof(ItemEntity)}"); }
+
 		ItemSprite.Texture = CurrentItem.Icon;
 	}
 
