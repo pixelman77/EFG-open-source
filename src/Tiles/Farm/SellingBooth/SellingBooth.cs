@@ -11,11 +11,10 @@ public class SellingBooth : InteractableTile
     {
         if(PlayerColliding && Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
 	    {
-            GD.Print("Sell");
-		    HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
+            HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
-            if (HeldItem is Crop crop) {
-                PlayerBody.Currency += crop.Price;
+            if (HeldItem is Crop crop && crop.IsSellable) {
+                PlayerBody.Currency += crop.SellingPrice;
                 PlayerBody.Inventory.Remove(HeldItem);
             }
         }

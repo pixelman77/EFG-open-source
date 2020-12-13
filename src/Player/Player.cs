@@ -7,16 +7,18 @@ using EvilFarmingGame.Tiles;
 
 public class Player : KinematicBody2D
 {
-    private PlayerController Controller;
+    public PlayerController Controller;
     public Inventory Inventory;
     private AnimatedSprite Sprite;
 
     public float Currency = 0;
 
     public bool CanMove = true;
+    public bool IsDragging = false;
+    public KinematicBody2D DragginBody;
     
     public Node2D RayPivot;
-    public static Vector2 Velocity;
+    public Vector2 Velocity;
 
     public Control UI;
     
@@ -26,7 +28,16 @@ public class Player : KinematicBody2D
     private RichTextLabel MessageLabel;
     private Dialogue DialogueBox;
     private RichTextLabel CurrencyLabel;
-
+    
+    // --- Player Stats ---
+    
+    // Stamina 
+    [Export()] public float StaminaDecreaseFactor = 20f;
+    [Export()] public float StaminaIncreaseFactor = .2f;
+    [Export()] public float Stamina = 100;
+    [Export()] public float MaxStamina = 100;
+    
+    
     public override void _Ready()
     {
         Controller = new PlayerController(this);
@@ -38,8 +49,8 @@ public class Player : KinematicBody2D
         
         Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
         DialogueBox = (Dialogue) GetNode("DialogueBox");
-        MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
-        MessageLabel.BbcodeText = "";
+        //MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
+        //MessageLabel.BbcodeText = "";
         
         CurrencyLabel = (RichTextLabel) GetNode("UI/ControlUI/Currency");
         Currency += 5;
@@ -49,7 +60,7 @@ public class Player : KinematicBody2D
         if(Owner.HasNode("DayNight"))
             TimeNode = (DayNight) Owner.GetNode("DayNight");
         else
-            GD.Print("WARNING: No DayNight Node, day-night system won't be implemented in scene. (Crops won't grow, daylight amount won't change, etc.)");
+            GD.Print("WARNING: No DayNight Node, day-night system won't be implemented in scene (Crops won't grow, daylight amount won't change, etc).");
     }
 
     public override void _PhysicsProcess(float delta)
@@ -62,12 +73,21 @@ public class Player : KinematicBody2D
         
         InventoryHandling();
         PlayerLogic();
+        StatsHandling();
         RayCasting();
         if(TimeNode != null) TimeHandling();
     }
 
     public override void _Input(InputEvent @event)
     {
+        // Eating items
+        if (Input.IsActionJustPressed("Player_UseItem") && Inventory.HeldSlot < Inventory.Items.Count &&
+            Inventory[Inventory.HeldSlot] is Crop food && food.IsEdible)
+        {
+            Stamina += food.StaminaIncrease;
+            Inventory.Remove(food);
+        }
+        
         // Dropping Items
         if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Items.Count)
         {
@@ -226,6 +246,18 @@ public class Player : KinematicBody2D
         Clock.BbcodeText = TimeNode.Afternoon
             ? $"Day: {TimeNode.Day}, {TimeNode.Hour}:{TimeNode.Minute:00} PM"
             : $"Day: {TimeNode.Day}, {TimeNode.Hour}:{TimeNode.Minute:00} AM";
+    }
+
+    private void StatsHandling()
+    {
+        var statsUI = (Control) UI.GetNode("Stats");
+        
+        // Stamina
+        Stamina = Mathf.Clamp(Stamina, 0f, MaxStamina);
+        
+        var staminaBar = (TextureProgress) statsUI.GetNode("Stamina");
+        staminaBar.Value = Stamina;
+        staminaBar.MaxValue = MaxStamina;
     }
 
     private void PlayerLogic()

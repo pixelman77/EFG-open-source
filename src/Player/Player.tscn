@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Fonts/pixeldroidBoticRegular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/UI/Stats/TextureProgressUnder.png" type="Texture" id=4]
 [ext_resource path="res://src/Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
 [ext_resource path="res://src/Player/Sprite/Farmer_sprite_0.png" type="Texture" id=6]
 [ext_resource path="res://src/Player/Sprite/farmer_sprite_1.png" type="Texture" id=7]
@@ -19,6 +20,7 @@
 [ext_resource path="res://src/Player/InventoryDetails.cs" type="Script" id=18]
 [ext_resource path="res://src/UI/DialougeBox/DialogueBox.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/Lights/DetailedTorch2.png" type="Texture" id=20]
+[ext_resource path="res://src/UI/Stats/TextureProgressOver.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -69,17 +71,20 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 18
-font_data = ExtResource( 5 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 5 )
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 3 )
+
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 8.0
 height = 16.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 8.00002
 height = 0.0
 
@@ -124,19 +129,6 @@ custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "Day 1, 12:00 AM"
 text = "Day 1, 12:00 AM"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Message" type="RichTextLabel" parent="UI/ControlUI"]
-margin_left = 421.0
-margin_top = 517.0
-margin_right = 928.0
-margin_bottom = 560.0
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "Message"
-text = "Message"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -190,6 +182,40 @@ position = Vector2( 5.33331, -85.3333 )
 [node name="InventorySlot5" parent="UI/ControlUI/Inventory" instance=ExtResource( 2 )]
 position = Vector2( 69.3333, -85.3333 )
 
+[node name="Stats" type="Control" parent="UI/ControlUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaminaLabel" type="RichTextLabel" parent="UI/ControlUI/Stats"]
+margin_left = 992.0
+margin_top = 267.0
+margin_right = 1088.0
+margin_bottom = 283.0
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Stamina"
+text = "Stamina"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamina" type="TextureProgress" parent="UI/ControlUI/Stats"]
+modulate = Color( 0, 0.780392, 0.121569, 1 )
+margin_left = 992.001
+margin_top = 234.667
+margin_right = 1040.0
+margin_bottom = 274.667
+rect_scale = Vector2( 2, 2 )
+value = 100.0
+texture_over = ExtResource( 21 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RayPivot" type="Area2D" parent="." groups=[
 "PlayerRays",
 ]]
@@ -197,7 +223,7 @@ collision_mask = 0
 
 [node name="RayCast2D" type="CollisionShape2D" parent="RayPivot"]
 position = Vector2( 0, 16 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="StaticRaycast" type="Area2D" parent="." groups=[
 "PlayerRays",
@@ -207,7 +233,7 @@ collision_mask = 0
 [node name="RayCast2D2" type="CollisionShape2D" parent="StaticRaycast"]
 position = Vector2( 0, -16 )
 rotation = 3.14159
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )

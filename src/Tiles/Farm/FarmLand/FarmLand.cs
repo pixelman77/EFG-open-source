@@ -67,8 +67,8 @@ public class FarmLand : InteractableTile
 
         if (CurrentPlant == null)
         {
-            PlantSeedling.Texture = (Texture) GD.Load("res://src/NoTexture.png");
-            PlantGrown.Texture = (Texture) GD.Load("res://src/NoTexture.png");
+            PlantSeedling.Texture = null;
+            PlantGrown.Texture = null;
         }
         else
         {
@@ -94,26 +94,29 @@ public class FarmLand : InteractableTile
                 {
 
                     HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
-                    if (HeldItem is Tool tool) 
+                    if (HeldItem is Tool tool && PlayerBody.Stamina > 0) 
                     {
                         if (tool.Type == ToolTypes.Hoe && State == states.UnCropped) 
                         {
                             State = states.Cropped;
+                            tool.Use(PlayerBody);
                         }
                         else if (tool.Type == ToolTypes.WateringCan && State == states.Planted) 
                         {
                             State = states.Watered;
+                            tool.Use(PlayerBody);
                         }
                     }
                     else if (HeldItem is Seed seed) 
                     {
                         if (State == states.Cropped)
                         {
-                            State = states.Planted;
                             CurrentPlant = Database<Plant>.Get(seed.PlantID);
                             PlantedDay = PlayerBody.TimeNode.Day;
                             PlantedHour = PlayerBody.TimeNode.Hour;
-                            PlayerBody.Inventory.Remove(HeldItem);
+                            PlayerBody.Inventory.Remove(seed);
+                            GD.Print(PlayerBody.TimeNode.Hour);
+                            State = states.Planted;
                         }
                     }
                 }
@@ -129,6 +132,5 @@ public class FarmLand : InteractableTile
                 }
             }
         }
-        GD.Print();
     }
 }
