@@ -12,7 +12,7 @@ public class InventoryDetails : RichTextLabel
 		PlayerBody = GetParent().GetParent().GetParent<Player>();
 		if (PlayerBody.Inventory.Items.Count >= PlayerBody.Inventory.HeldSlot + 1)
 		{
-		HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
+			HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 		}
 		else HeldItem = null;
 
@@ -22,7 +22,7 @@ public class InventoryDetails : RichTextLabel
 			this.Text = HeldItem.Name;
 			if (Debugmode)
 			{
-				this.Text += "\t\t" + HeldItem.ID;
+				this.Text += "  " + HeldItem.ID;
 			}
 			if (Input.IsActionPressed("ui_show_des"))
 			{

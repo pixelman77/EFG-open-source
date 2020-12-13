@@ -21,6 +21,7 @@ public class Bed : InteractableTile
     private void Sleep()
     {
         PlayerBody.TimeNode.NextDay();
+        PlayerBody.Stamina = PlayerBody.MaxStamina;
     }
     
 }
