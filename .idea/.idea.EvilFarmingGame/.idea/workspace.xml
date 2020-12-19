@@ -20,27 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbb8b868-0f77-44a7-ac0f-1c55f6e3089a" name="Default Changelist" comment="Add fastforward function">
-      <change afterPath="$PROJECT_DIR$/src/UI/Stats/TextureProgressOver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Stats/TextureProgressOver.png.import" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Stats/TextureProgressUnder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Stats/TextureProgressUnder.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Farmland2.png-autosave.kra" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Hole.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Hole.png.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bodies/WifesBody/WifesBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bodies/WifesBody/WifesBody.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/InventoryDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/InventoryDetails.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,85 +42,40 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46E2FABA-5596-4E57-BC4A-72159B9574B8/b1/262dd03c/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46E2FABA-5596-4E57-BC4A-72159B9574B8/c6/89f74b66/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E73C7D31-35C1-4EBF-9A4F-76308FAEF9FA/1a/c239ce48/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Bodies/WifesBody/WifesBody.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/Plants/Plant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181B3D09-D30B-4D83-9837-7B1820FDD680/28/c7864fcb/GD.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Enviorments/Scene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Enviorments/DayNight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E73C7D31-35C1-4EBF-9A4F-76308FAEF9FA/85/3b2bc295/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46E2FABA-5596-4E57-BC4A-72159B9574B8/1d/b5a309db/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46E2FABA-5596-4E57-BC4A-72159B9574B8/b1/262dd03c/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46E2FABA-5596-4E57-BC4A-72159B9574B8/c6/89f74b66/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Bodies/WifesBody/WifesBody.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E73C7D31-35C1-4EBF-9A4F-76308FAEF9FA/1a/c239ce48/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Items/Placeables/Base/Torch/Torch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/GameControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181B3D09-D30B-4D83-9837-7B1820FDD680/28/c7864fcb/GD.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Player/ControlUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Player/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/42B2BCDE-8F72-4955-9A9A-F9BB456CF370/08/49bedecd/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/42B2BCDE-8F72-4955-9A9A-F9BB456CF370/08/49bedecd/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Items/Placeables/WoodenTorch/WoodenTorch.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Enviorments/Scene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Tiles/InteractableTile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/Plants/Plant.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/GameControl.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Enviorments/DayNight.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E73C7D31-35C1-4EBF-9A4F-76308FAEF9FA/85/3b2bc295/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Tiles/Base/PlacedItem/PlacedItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46E2FABA-5596-4E57-BC4A-72159B9574B8/1d/b5a309db/List`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/Objects/Farm/Plants/Plant.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Seeds.cs" />
-        <option value="$PROJECT_DIR$/src/Objects/Farm/Plants/Plants.cs" />
-        <option value="$PROJECT_DIR$/src/Objects/Farm/FarmLand/FarmLand.cs" />
-        <option value="$PROJECT_DIR$/src/Objects/Farm/SeedStrorage/SeedStorage.cs" />
-        <option value="$PROJECT_DIR$/src/Enviorments/Day-night.cs" />
-        <option value="$PROJECT_DIR$/src/Player/ControlUI.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/SeedStorage.cs" />
-        <option value="$PROJECT_DIR$/src/WindowControl.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Tile.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Crops/Crops.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/Plants/Plants.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Tools/Tools.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Seeds/Seeds.cs" />
-        <option value="$PROJECT_DIR$/src/Player/Inventory.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/Closet.cs" />
-        <option value="$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" />
-        <option value="$PROJECT_DIR$/src/Dialogue/Template.json" />
-        <option value="$PROJECT_DIR$/src/Dialogue/TestDialogue/TestNPC.json" />
-        <option value="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" />
-        <option value="$PROJECT_DIR$/src/Bodies/NPC's/NPC.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/Plants/Plant.cs" />
-        <option value="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" />
-        <option value="$PROJECT_DIR$/src/GameControl.cs" />
-        <option value="$PROJECT_DIR$/src/Enviorments/Scene.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Base/PlacedItem.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Placeables/WoodenTorch/WoodenTorch.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Base/Torch.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Placeables/Base/Torch/Torch.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Base/PlacedItem/PlacedItem.cs" />
-        <option value="$PROJECT_DIR$/src/Enviorments/DayNight.cs" />
-        <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" />
-        <option value="$PROJECT_DIR$/src/Player/InventoryDetails.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Database.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
-        <option value="$PROJECT_DIR$/src/Items/Item.cs" />
-        <option value="$PROJECT_DIR$/src/Player/Player.cs" />
-        <option value="$PROJECT_DIR$/src/Bodies/WifesBody/WifesBody.cs" />
-        <option value="$PROJECT_DIR$/src/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1emCOk5I0XEfwg7yvUHa5d8YtSb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -153,12 +99,12 @@
     <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Start and Debug.Start and Debug">
+  <component name="RunManager" selected=".NET Executable.Profile Player">
     <configuration name="Attach to Player" type="ConnectRemote" factoryName="Mono Remote" show_console_on_std_err="false" show_console_on_std_out="false" port="23685" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -199,7 +145,6 @@
       <item itemvalue=".NET Executable.Profile Player" />
       <item itemvalue="Mono Remote.Attach to Player" />
       <item itemvalue="Native Executable.Run Player" />
-      <item itemvalue="Start and Debug.Start and Debug" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -258,7 +203,8 @@
       <workItem from="1606505486642" duration="6118000" />
       <workItem from="1606557331154" duration="5179000" />
       <workItem from="1607766097763" duration="7417000" />
-      <workItem from="1607850255585" duration="6882000" />
+      <workItem from="1607850255585" duration="7801000" />
+      <workItem from="1608373716096" duration="1659000" />
     </task>
     <task id="LOCAL-00001" summary="Modified plant growth system and added the ability to collect the grown crop">
       <created>1595576441196</created>
