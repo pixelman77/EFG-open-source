@@ -11,6 +11,7 @@ public class FarmLand : InteractableTile
     private Plant CurrentPlant;
     private Sprite PlantSeedling;
     private Sprite PlantGrown;
+    private Sprite Hole;
 
     private int PlantedDay;
     private int PlantedHour;
@@ -28,6 +29,7 @@ public class FarmLand : InteractableTile
     }
 
     public states State;
+    public bool IsWatered;
 
     public override void _Ready()
     {
@@ -37,7 +39,8 @@ public class FarmLand : InteractableTile
         
         PlantSeedling = (Sprite) GetNode("Plant/Seedling");
         PlantGrown = (Sprite) GetNode("Plant/Grown");
-        
+        Hole = (Sprite) GetNode("Hole");
+
     }
 
     public override void _PhysicsProcess(float delta)
@@ -46,24 +49,25 @@ public class FarmLand : InteractableTile
         {
             case states.UnCropped:
                 Sprite.Play("UnCropped");
+                Hole.Visible = false;
                 break;
             case states.Cropped:
-                Sprite.Play("Cropped");
+                Hole.Visible = true;
                 break;
             case states.Planted:
                 Sprite.Play("UnCropped");
                 PlantGrown.Hide();
                 PlantSeedling.Show();
-                break;
-            case states.Watered:
-                Sprite.Play("Watered");
+                Hole.Visible = false;
                 break;
             case states.Grown:
                 Sprite.Play("UnCropped");
                 PlantGrown.Show();
                 PlantSeedling.Hide();
+                Hole.Visible = false;
                 break;
         }
+        if (IsWatered) Sprite.Play("Watered");
 
         if (CurrentPlant == null)
         {
@@ -76,7 +80,7 @@ public class FarmLand : InteractableTile
             PlantGrown.Texture = CurrentPlant.GrownTexture;
         }
         
-        if (PlayerBody != null && CurrentPlant != null && PlayerBody.TimeNode.Day == PlantedDay+CurrentPlant.GrowthDuration && PlayerBody.TimeNode.Hour == PlantedHour)
+        if (PlayerBody != null && CurrentPlant != null && IsWatered && PlayerBody.TimeNode.Day == PlantedDay+CurrentPlant.GrowthDuration && PlayerBody.TimeNode.Hour == PlantedHour)
         {
             State = states.Grown;
         }
@@ -101,9 +105,9 @@ public class FarmLand : InteractableTile
                             State = states.Cropped;
                             tool.Use(PlayerBody);
                         }
-                        else if (tool.Type == ToolTypes.WateringCan && State == states.Planted) 
+                        else if (tool.Type == ToolTypes.WateringCan && !IsWatered)
                         {
-                            State = states.Watered;
+                            IsWatered = true;
                             tool.Use(PlayerBody);
                         }
                     }
