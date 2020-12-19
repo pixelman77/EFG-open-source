@@ -15,16 +15,23 @@ public class ItemEntity : Area2D
 	public Player PlayerBody;
 	public bool PlayerColliding;
 	public bool CanBePickedUp = true;
-	
+	public bool IsJustDropped;
 	public override void _Ready()
 	{
 		ItemSprite = (Sprite) GetNode("Sprite");
-		Outline = (Sprite) GetNode("OutLine");
+		//Outline = (Sprite) GetNode("OutLine");
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
-		Outline.Visible = PlayerColliding;
+		//Outline.Visible = PlayerColliding;
+		if (IsJustDropped && PlayerBody != null)
+		{
+			if (GlobalPosition.DistanceTo(PlayerBody.GlobalPosition) > 28)
+			{
+				IsJustDropped = false;
+			}
+		}
 		PlayerColliding = false;
 
 		if (CurrentItem == null)
@@ -45,7 +52,7 @@ public class ItemEntity : Area2D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (Input.IsActionJustPressed("Player_Action") && PlayerColliding && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity && CanBePickedUp)
+		if (PlayerColliding && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity && CanBePickedUp && !IsJustDropped)
 		{
 			PlayerBody.Inventory.Gain(CurrentItem);
 			CanBePickedUp = false;

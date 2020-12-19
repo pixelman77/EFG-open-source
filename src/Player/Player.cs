@@ -96,6 +96,7 @@ public class Player : KinematicBody2D
             Item.CurrentItem = Inventory[Inventory.HeldSlot];
             Item.Position = Position;
             Inventory.Remove(Inventory[Inventory.HeldSlot]);
+            Item.IsJustDropped = true;
 
             GetParent().GetNode("Items").AddChild(Item);
         }
@@ -196,6 +197,16 @@ public class Player : KinematicBody2D
 
     private void RayCasting()
     {
+        foreach (Area2D CollidedArea in GetNode<Area2D>("ItemPickUpRange").GetOverlappingAreas())
+        {
+            if (CollidedArea is ItemEntity)
+            {
+                ItemEntity IT = (ItemEntity)CollidedArea;
+                IT.PlayerColliding = true;
+                IT.PlayerBody = this;
+            }
+        }
+
         foreach (Area2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
         {
             bool collided = false;
@@ -213,12 +224,8 @@ public class Player : KinematicBody2D
                         collided = true;
                         break;
                     
-                    case ItemEntity T:
-                        var Item = T;
-                        Item.PlayerColliding = true;
-                        Item.PlayerBody = this;
-                        collided = true;
-                        break;
+                    //case ItemEntity T:
+                        //break;
                     
                     case NPC T:
                         var npc = T;

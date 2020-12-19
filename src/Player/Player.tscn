@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
@@ -34,14 +34,9 @@ animations = [ {
 "name": "Left-walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "Right-walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Down",
+"name": "Right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
@@ -49,19 +44,24 @@ animations = [ {
 "name": "Down-walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 16 ) ],
 "loop": true,
-"name": "Right",
+"name": "Up-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Right-walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "Left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "Up-walk",
 "speed": 5.0
 } ]
 
@@ -87,6 +87,9 @@ height = 16.0
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 8.00002
 height = 0.0
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 24.0
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -234,6 +237,11 @@ collision_mask = 0
 position = Vector2( 0, -16 )
 rotation = 3.14159
 shape = SubResource( 7 )
+
+[node name="ItemPickUpRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickUpRange"]
+shape = SubResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )
