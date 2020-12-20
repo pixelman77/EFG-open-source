@@ -79,10 +79,13 @@ public class FarmLand : InteractableTile
             PlantSeedling.Texture = CurrentPlant.SeedlingTexture;
             PlantGrown.Texture = CurrentPlant.GrownTexture;
         }
-        
-        if (PlayerBody != null && CurrentPlant != null && IsWatered && PlayerBody.TimeNode.Day == PlantedDay+CurrentPlant.GrowthDuration && PlayerBody.TimeNode.Hour == PlantedHour)
+
+        if (PlayerBody != null && CurrentPlant != null && IsWatered &&
+            PlayerBody.TimeNode.Day == PlantedDay + CurrentPlant.GrowthDuration &&
+            PlayerBody.TimeNode.Hour == PlantedHour)
         {
             State = states.Grown;
+            IsWatered = false;
         }
 
         base._PhysicsProcess(delta);
@@ -94,7 +97,7 @@ public class FarmLand : InteractableTile
         {
             if (Input.IsActionJustPressed("Player_Action"))
             {
-                if (PlayerBody != null && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
+                if (PlayerBody != null && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Slots.Count)
                 {
 
                     HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
@@ -125,7 +128,7 @@ public class FarmLand : InteractableTile
                     }
                 }
 
-                if (PlayerBody != null && CurrentPlant != null && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity)
+                if (PlayerBody != null && CurrentPlant != null && PlayerBody.Inventory.Slots.Count < PlayerBody.Inventory.Slots.Capacity)
                 {
                     if (State == states.Grown)
                     {
