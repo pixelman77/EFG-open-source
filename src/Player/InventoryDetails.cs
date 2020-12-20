@@ -10,7 +10,7 @@ public class InventoryDetails : RichTextLabel
 	public override void _PhysicsProcess(float delta)
 	{
 		PlayerBody = GetParent().GetParent().GetParent<Player>();
-		if (PlayerBody.Inventory.Items.Count >= PlayerBody.Inventory.HeldSlot + 1)
+		if (PlayerBody.Inventory.Slots.Count >= PlayerBody.Inventory.HeldSlot + 1)
 		{
 			HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 		}

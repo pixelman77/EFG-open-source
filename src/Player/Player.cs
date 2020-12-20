@@ -75,21 +75,21 @@ public class Player : KinematicBody2D
         PlayerLogic();
         StatsHandling();
         RayCasting();
-        if(TimeNode != null) TimeHandling();
+        if (TimeNode != null) TimeHandling();
     }
 
     public override void _Input(InputEvent @event)
     {
         // Eating items
-        if (Input.IsActionJustPressed("Player_UseItem") && Inventory.HeldSlot < Inventory.Items.Count &&
-            Inventory[Inventory.HeldSlot] is Crop food && food.IsEdible)
+        if (Input.IsActionJustPressed("Player_UseItem") && Inventory.HeldSlot < Inventory.Slots.Count &&
+            Inventory[Inventory.HeldSlot].item is Crop food && food.IsEdible)
         {
             Stamina += food.StaminaIncrease;
             Inventory.Remove(food);
         }
         
         // Dropping Items
-        if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Items.Count)
+        if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Slots.Count)
         {
             var Item = (ItemEntity) ((PackedScene)GD.Load("res://src/Items/ItemEntity.tscn")).Instance();
             
@@ -101,15 +101,15 @@ public class Player : KinematicBody2D
         }
         
         // Placing Placeable Items
-        if (Input.IsActionJustPressed("Player_Action") && Inventory.HeldSlot < Inventory.Items.Count &&
-            Inventory[Inventory.HeldSlot] is PlaceableItem item)
+        if (Input.IsActionJustPressed("Player_Action") && Inventory.HeldSlot < Inventory.Slots.Count &&
+            Inventory[Inventory.HeldSlot].item is PlaceableItem item)
         {
             var itemBody = (PlacedItem) ((PackedScene)GD.Load(item.ScenePath)).Instance();
             itemBody.CurrentItem = item;
             itemBody.Position = Position;
             
-            GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody);
             Inventory.Remove(item);
+            GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody);
         }
 
     }
@@ -161,30 +161,34 @@ public class Player : KinematicBody2D
 
     private void InventoryHandling()
     {
-        for (int i = 0; i < Inventory.Items.Count; i++)
+        for (int i = 0; i < Inventory.Slots.Count; i++)
         {
-            Sprite Icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection");
-
-            if (Inventory[i] != null) Icon.Texture = Inventory[i].Icon;
+            var icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
+            var amountLabel = (RichTextLabel) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/AmountLabel");
+            if (Inventory[i].item == null) continue;
+            
+            icon.Texture = Inventory[i].item.Icon;
+            amountLabel.BbcodeText = Inventory[i].item.MaxStackAmount > 1
+                ? Inventory[i].Amount.ToString() 
+                : "";
         }
 
-        for (int i = 0; i < Inventory.Items.Capacity; i++)
+        for (int i = 0; i < Inventory.Slots.Capacity; i++)
         {
-            Sprite Icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
-            Sprite SelectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection");
+            var icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
+            var selectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection");
+            var amountLabel = (RichTextLabel) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/AmountLabel");
 
-            if (i == Inventory.HeldSlot)
-                SelectBox.Show();
-            else
-                SelectBox.Hide();
+            selectBox.Visible = (i == Inventory.HeldSlot);
 
-            if (Inventory.Items.Count <= i) Icon.Texture = (Texture) GD.Load("res://src/NoTexture.png");
+            if (i < Inventory.Slots.Count) continue;
+            icon.Texture = null;
+            amountLabel.BbcodeText = "";
         }
 
         if (Input.IsActionJustPressed("ui_right"))
         {
-            if (Inventory.HeldSlot < Inventory.Items.Capacity - 1)
+            if (Inventory.HeldSlot < Inventory.Slots.Capacity - 1)
                 Inventory.HeldSlot++;
         }
         else if (Input.IsActionJustPressed("ui_left"))
@@ -198,46 +202,39 @@ public class Player : KinematicBody2D
     {
         foreach (Area2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
         {
-            bool collided = false;
-            if (RayCast.GetOverlappingAreas().Count > 0)
+            var collided = false;
+            if (RayCast.GetOverlappingAreas().Count <= 0) continue;
+            var collidedTile = RayCast.GetOverlappingAreas()[0];
+
+            switch (collidedTile)
             {
-                var collidedTile = RayCast.GetOverlappingAreas()[0];
-
-                switch (collidedTile)
-                {
-                    case InteractableTile T:
-                        var collidedIntTile = T;
-                        collidedIntTile.OutLine.Visible = true;
-                        collidedIntTile.PlayerColliding = true;
-                        collidedIntTile.PlayerBody = this;
-                        collided = true;
-                        break;
+                case InteractableTile T:
+                    T.OutLine.Visible = true;
+                    T.PlayerColliding = true;
+                    T.PlayerBody = this;
+                    collided = true;
+                    break;
                     
-                    case ItemEntity T:
-                        var Item = T;
-                        Item.PlayerColliding = true;
-                        Item.PlayerBody = this;
-                        collided = true;
-                        break;
+                case ItemEntity T:
+                    T.PlayerColliding = true;
+                    T.PlayerBody = this;
+                    collided = true;
+                    break;
                     
-                    case NPC T:
-                        var npc = T;
-                        npc.PlayerColliding = true;
-                        npc.PlayerBody = this;
-                        collided = true;
-                        break;
+                case NPC T:
+                    T.PlayerColliding = true;
+                    T.PlayerBody = this;
+                    collided = true;
+                    break;
                     
-                    case PlacedItem T:
-                        var PItem = T;
-                        PItem.PlayerColliding = true;
-                        PItem.PlayerBody = this;
-                        collided = true;
-                        break;
-                }
-
-                if (collided) break;
-
+                case PlacedItem T:
+                    T.PlayerColliding = true;
+                    T.PlayerBody = this;
+                    collided = true;
+                    break;
             }
+
+            if (collided) break;
         }
     }
 

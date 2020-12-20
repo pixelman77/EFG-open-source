@@ -20,18 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbb8b868-0f77-44a7-ac0f-1c55f6e3089a" name="Default Changelist" comment="Add fastforward function">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Farmland2.png-autosave.kra" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Hole.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Hole.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EvilFarmingGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Database.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/ItemEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player/InventoryDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/InventoryDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Farmland2.png-autosave.kra" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Inventory/Inventory Slot.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Inventory/Inventory Slot.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +79,16 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/src/Items/Item.cs" />
+      <option value="$PROJECT_DIR$/src/Items/Database.cs" />
+      <option value="$PROJECT_DIR$/src/Player/InventoryDetails.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" />
+      <option value="$PROJECT_DIR$/src/Player/Inventory.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" />
       <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
+      <option value="$PROJECT_DIR$/src/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1emCOk5I0XEfwg7yvUHa5d8YtSb" />
@@ -204,7 +218,8 @@
       <workItem from="1606557331154" duration="5179000" />
       <workItem from="1607766097763" duration="7417000" />
       <workItem from="1607850255585" duration="7801000" />
-      <workItem from="1608373716096" duration="1659000" />
+      <workItem from="1608373716096" duration="16573000" />
+      <workItem from="1608456001142" duration="1989000" />
     </task>
     <task id="LOCAL-00001" summary="Modified plant growth system and added the ability to collect the grown crop">
       <created>1595576441196</created>
@@ -270,88 +285,5 @@
     <MESSAGE value="Added a plant watering system, improved Item and plant system." />
     <MESSAGE value="Add fastforward function" />
     <option name="LAST_COMMIT_MESSAGE" value="Add fastforward function" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="743" y="277" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604775739799">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="743" y="277" width="424" height="491" key="FileChooserDialogImpl/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1604775739799" />
-    <state width="939" height="256" key="GridCell.Tab.0.bottom" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.0.center" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.0.center/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.0.left" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.0.left/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.0.right" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.0.right/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.1.bottom" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.1.bottom/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.1.center" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.1.center/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.1.left" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.1.left/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.1.right" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.1.right/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.2.bottom" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.2.bottom/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.2.center" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.2.center/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.2.left" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.2.left/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.2.right" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.2.right/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.3.bottom" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.3.bottom/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.3.center" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.3.center/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.3.left" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.3.left/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state width="939" height="256" key="GridCell.Tab.3.right" timestamp="1602259951077">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state width="939" height="256" key="GridCell.Tab.3.right/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1602259951077" />
-    <state x="100" y="200" width="1720" height="832" key="VCS.FileHistoryDialog" timestamp="1607769155387">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="100" y="200" width="1720" height="832" key="VCS.FileHistoryDialog/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1607769155387" />
-    <state x="624" y="233" key="run.anything.popup" timestamp="1605352488127">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="624" y="233" key="run.anything.popup/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1605352488127" />
-    <state x="623" y="228" width="672" height="665" key="search.everywhere.popup" timestamp="1607852410113">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="623" y="228" width="672" height="665" key="search.everywhere.popup/0.0.1920.1032/1920.56.1280.1024@0.0.1920.1032" timestamp="1607852410113" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1280.1024@0.27.1920.1053" timestamp="1606558414401" />
   </component>
 </project>

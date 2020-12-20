@@ -1,12 +1,11 @@
 using Godot;
 using System;
 using EvilFarmingGame.Items;
-using static EvilFarmingGame.Items.Database<EvilFarmingGame.Items.Item>;
 
 [Tool]
 public class ItemEntity : Area2D
 {
-	[Export()] public string ItemID = "Seeds\\TestSeed";
+	[Export()] public string ItemID;
 
 	public Item CurrentItem;
 	private Sprite ItemSprite;
@@ -45,7 +44,7 @@ public class ItemEntity : Area2D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (Input.IsActionJustPressed("Player_Action") && PlayerColliding && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity && CanBePickedUp)
+		if (Input.IsActionJustPressed("Player_Action") && PlayerColliding && PlayerBody.Inventory.CanBeAdded(CurrentItem) && CanBePickedUp)
 		{
 			PlayerBody.Inventory.Gain(CurrentItem);
 			CanBePickedUp = false;

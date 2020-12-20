@@ -229,6 +229,26 @@ ItemID = "Seeds\\TestSeed"
 position = Vector2( 432, 128 )
 ItemID = "Placeable\\Torches\\WoodenTorch"
 
+[node name="ItemEntity5" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 368, 272 )
+ItemID = "Crops\\TestCrop"
+
+[node name="ItemEntity6" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 400, 272 )
+ItemID = "Crops\\TestCrop"
+
+[node name="ItemEntity7" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 432, 272 )
+ItemID = "Crops\\TestCrop"
+
+[node name="ItemEntity8" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 464, 272 )
+ItemID = "Crops\\TestCrop"
+
+[node name="ItemEntity9" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 496, 272 )
+ItemID = "Crops\\TestCrop"
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 432, 208 )
 

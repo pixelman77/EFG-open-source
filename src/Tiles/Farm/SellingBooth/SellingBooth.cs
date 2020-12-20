@@ -9,7 +9,7 @@ public class SellingBooth : InteractableTile
 
     public override void _PhysicsProcess(float delta)
     {
-        if(PlayerColliding && Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Items.Count)
+        if(PlayerColliding && Input.IsActionJustPressed("Player_Action") && PlayerBody.Inventory.CanBeAdded(PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot]))
 	    {
             HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
 
