@@ -25,8 +25,8 @@ namespace EvilFarmingGame.Items
             { "Seeds\\TestSeed2", new Seed("Test Seed2", "res://src/Items/Seeds/Test Seed2/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed2", "TestPlant2", false, 64, 10) },
 
             // Tools.
-            { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", "Tools\\BasicHoe", ToolTypes.Hoe, 10f ,false) },
-            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan, 10f ,false) },
+            { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", "Tools\\BasicHoe", ToolTypes.Hoe, 10f , false, ToolFunctions.BasicHoe) },
+            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan, 10f , false, ToolFunctions.BasicWateringCan) },
             
             // Placeables.
             { "Placeable\\Torches\\WoodenTorch", new PlaceableItem("Wooden Torch", "res://src/Items/Placeables/WoodenTorch/Texture.png", "A simple torch made by a stick and some lighter fluid", "Placeable\\WoodenTorch", "res://src/Items/Placeables/WoodenTorch/WoodenTorch.tscn", false, 1) }
@@ -41,6 +41,29 @@ namespace EvilFarmingGame.Items
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture1.png",
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Database<Item>.Get("Crops\\TestCrop2"), 1) }
         };
+        
+        /// <summary>
+        ///  Contains the static functions for the tools.
+        /// </summary>
+        private static class ToolFunctions
+        {
+            public static bool BasicHoe(global::Player playerBody)
+            {
+                if (!(playerBody.CollidingInteractable is FarmLand farmLand)) return false;
+                if (farmLand.State != FarmLand.states.UnCropped) return false;
+                farmLand.State = FarmLand.states.Cropped;
+                return true;
+            }
+
+            public static bool BasicWateringCan(global::Player playerBody)
+            {
+                if (!(playerBody.CollidingInteractable is FarmLand farmLand)) return false;
+                if (farmLand.IsWatered) return false;
+                farmLand.IsWatered = true;
+                return true;
+            }
+            
+        }
 
         /// <summary>
         /// Initializes the databases.

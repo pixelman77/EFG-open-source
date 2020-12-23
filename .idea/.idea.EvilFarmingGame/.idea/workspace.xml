@@ -24,19 +24,19 @@
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/EvilFarmingGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/EvilFarmingGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enviorments/TestEnv/TestEnv.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Items/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Database.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/ItemEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player/InventoryDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/InventoryDetails.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/Assets/Farmland2.png-autosave.kra" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Inventory/Inventory Slot.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Inventory/Inventory Slot.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,16 +79,20 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/src/Items/Item.cs" />
-      <option value="$PROJECT_DIR$/src/Items/Database.cs" />
       <option value="$PROJECT_DIR$/src/Player/InventoryDetails.cs" />
-      <option value="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" />
-      <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" />
-      <option value="$PROJECT_DIR$/src/Player/Inventory.cs" />
-      <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" />
-      <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
-      <option value="$PROJECT_DIR$/src/Player/Player.cs" />
       <option value="$PROJECT_DIR$/src/Items/ItemEntity.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/InteractableTile.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Home/Bed/Bed.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Farm/SeedStrorage/TestSeedStorage/SeedStorage.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/TestStorage/TestCloset.cs" />
+      <option value="$PROJECT_DIR$/src/UI/Inventory/InventorySlot.cs" />
+      <option value="$PROJECT_DIR$/src/Player/Inventory.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Farm/SellingBooth/SellingBooth.cs" />
+      <option value="$PROJECT_DIR$/src/Items/Item.cs" />
+      <option value="$PROJECT_DIR$/src/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Farm/FarmLand/FarmLand.cs" />
+      <option value="$PROJECT_DIR$/src/Items/Database.cs" />
+      <option value="$PROJECT_DIR$/src/Tiles/Home/Storage/Storage.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1emCOk5I0XEfwg7yvUHa5d8YtSb" />
@@ -110,7 +114,7 @@
     <property name="XThreadsFramesViewSplitterKey" value="0.27040815" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UI/DialougeBox/Dialogue.cs" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Executable.Profile Player">
@@ -220,6 +224,8 @@
       <workItem from="1607850255585" duration="7801000" />
       <workItem from="1608373716096" duration="16573000" />
       <workItem from="1608456001142" duration="1989000" />
+      <workItem from="1608650565295" duration="12710000" />
+      <workItem from="1608717729849" duration="747000" />
     </task>
     <task id="LOCAL-00001" summary="Modified plant growth system and added the ability to collect the grown crop">
       <created>1595576441196</created>

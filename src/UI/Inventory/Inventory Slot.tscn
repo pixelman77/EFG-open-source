@@ -44,5 +44,13 @@ text = "1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="TextureButton" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="Area2D" to="." method="MouseEntered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="MouseExited"]
+[connection signal="pressed" from="Button" to="." method="Pressed"]

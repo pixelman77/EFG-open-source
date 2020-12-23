@@ -17,32 +17,24 @@ public class TestCloset : Storage
 
     public override void _Process(float delta)
     {
-        InventoryHandling();
+        if (PlayerColliding) InventoryHandling();
     }
 
-    public override void _PhysicsProcess(float delta)
+    public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("Player_Action") && PlayerColliding)
-        {
-            UI.Show();
-
-            if (PlayerBody != null)
-            {
-                PlayerBody.UI.Hide();
-                PlayerBody.CanMove = false;
-            }
-        }
-
-        if (Input.IsActionJustPressed("Window_Exit"))
-        {
-            UI.Hide();
-            if (PlayerBody != null)
-            {
-                PlayerBody.UI.Show();
-                PlayerBody.CanMove = true;
-            }
-        }
-        base._PhysicsProcess(delta);
+        if (!Input.IsActionJustPressed("Window_Exit") || PlayerBody == null) return;
+        
+        UI.Hide();
+        PlayerBody.UI.Show();
+        PlayerBody.CanMove = true;
     }
 
+    public override void Interact(Player PlayerBody)
+    {
+        UI.Show();
+
+        if (PlayerBody == null) return;
+        PlayerBody.UI.Hide();
+        PlayerBody.CanMove = false;
+    }
 }

@@ -18,6 +18,7 @@ public class Player : KinematicBody2D
     public KinematicBody2D DragginBody;
     
     public Node2D RayPivot;
+    public Area2D CollidingInteractable;
     public Vector2 Velocity;
 
     public Control UI;
@@ -80,16 +81,16 @@ public class Player : KinematicBody2D
 
     public override void _Input(InputEvent @event)
     {
-        // Eating items
-        if (Input.IsActionJustPressed("Player_UseItem") && Inventory.HeldSlot < Inventory.Slots.Count &&
-            Inventory[Inventory.HeldSlot].item is Crop food && food.IsEdible)
-        {
-            Stamina += food.StaminaIncrease;
-            Inventory.Remove(food);
-        }
+        //// Eating items
+        //if (Input.IsActionJustPressed("Player_UseItem") && Inventory.HeldSlot < Inventory.Slots.Count &&
+        //    Inventory[Inventory.HeldSlot].item is Crop food && food.IsEdible)
+        //{
+        //    Stamina += food.StaminaIncrease;
+        //    Inventory.Remove(food);
+        //}
         
         // Dropping Items
-        if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Slots.Count)
+        if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Slots.Count && CanMove)
         {
             var Item = (ItemEntity) ((PackedScene)GD.Load("res://src/Items/ItemEntity.tscn")).Instance();
             
@@ -99,17 +100,48 @@ public class Player : KinematicBody2D
 
             GetParent().GetNode("Items").AddChild(Item);
         }
-        
-        // Placing Placeable Items
-        if (Input.IsActionJustPressed("Player_Action") && Inventory.HeldSlot < Inventory.Slots.Count &&
-            Inventory[Inventory.HeldSlot].item is PlaceableItem item)
+
+        if (Input.IsActionJustPressed("Player_UseItem") && CanMove)
         {
-            var itemBody = (PlacedItem) ((PackedScene)GD.Load(item.ScenePath)).Instance();
-            itemBody.CurrentItem = item;
-            itemBody.Position = Position;
+            // Handles Item interaction
+            if (Inventory.HeldSlot < Inventory.Slots.Count)
+            {
+                switch (Inventory[Inventory.HeldSlot].item)
+                {
+                    case Tool T:
+                        T.Use(this);
+                        break;
+                    
+                    case Crop T:
+                        if (T.IsEdible) T.Eat(this);
+                        break;
+                    
+                    case Seed T:
+                        if (!(CollidingInteractable is FarmLand farmLand)) break;
+                        farmLand.AddSeed(T);
+                        Inventory.Remove(Inventory[Inventory.HeldSlot].item);
+                        break;
+                    
+                    case PlaceableItem T:
+                        var itemBody = (PlacedItem) ((PackedScene)GD.Load(T.ScenePath)).Instance();
+                        itemBody.CurrentItem = T;
+                        itemBody.Position = Position;
             
-            Inventory.Remove(item);
-            GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody);
+                        Inventory.Remove(T);
+                        GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody);
+                        break;
+                }
+            }
+        }
+        else if (Input.IsActionJustPressed("Player_Action") && CanMove)
+        {
+            if (CollidingInteractable == null) return;
+            switch (CollidingInteractable)
+            {
+                case InteractableTile T:
+                    T.Interact(this);
+                    break;
+            }
         }
 
     }
@@ -212,12 +244,14 @@ public class Player : KinematicBody2D
                     T.OutLine.Visible = true;
                     T.PlayerColliding = true;
                     T.PlayerBody = this;
+                    CollidingInteractable = T;
                     collided = true;
                     break;
                     
                 case ItemEntity T:
                     T.PlayerColliding = true;
                     T.PlayerBody = this;
+                    CollidingInteractable = T;
                     collided = true;
                     break;
                     
@@ -230,11 +264,13 @@ public class Player : KinematicBody2D
                 case PlacedItem T:
                     T.PlayerColliding = true;
                     T.PlayerBody = this;
+                    CollidingInteractable = T;
                     collided = true;
                     break;
             }
 
             if (collided) break;
+            CollidingInteractable = null;
         }
     }
 

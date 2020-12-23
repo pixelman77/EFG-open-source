@@ -14,21 +14,24 @@ public class InventorySlot : Node2D
         Outline = (Sprite) GetNode("Selection");
     }
 
-    public override void _Process(float delta)
+    //public override void _Process(float delta)
+    //{
+    //    if(Selected && Input.IsActionJustPressed("Player_Click")) 
+    //}
+
+    public void Pressed()
     {
-        if(Selected && Input.IsActionJustPressed("Player_Click")) EmitSignal(nameof(SlotClicked), this);
+        EmitSignal(nameof(SlotClicked), this);
     }
 
     public void MouseEntered()
     { 
         Outline.Show();
-        Selected = true;
     }
 
     public void MouseExited()
     {
         Outline.Hide();
-        Selected = false;
     }
 
 }
