@@ -23,30 +23,36 @@ namespace EvilFarmingGame.Tiles.Home.Storage
             for (int i = 0; i < InternalInventory.Slots.Capacity; i++)
             {
                 var icon = (Sprite) GetNode($"UI/Control/InventorySlots/InventorySlot{i + 1}/Item");
-                //var SelectBox = (Sprite) GetNode($"UI/Control/InventorySlots/InventorySlot{i + 1}/Selection");
                 var amountLabel = (RichTextLabel) GetNode($"UI/Control/InventorySlots/InventorySlot{i + 1}/AmountLabel");
 
-                if (InternalInventory.Slots.Count <= i) icon.Texture = null;
-                else
+                if (i < InternalInventory.Slots.Count)
                 {
-                    amountLabel.BbcodeText = InternalInventory[i].Amount.ToString("00");
+                    amountLabel.BbcodeText = InternalInventory[i].item.MaxStackAmount > 1
+                        ? InternalInventory[i].Amount.ToString("00")
+                        : "";
                     icon.Texture = InternalInventory[i].item.Icon;
+                    continue;
                 }
+                amountLabel.BbcodeText = "";
+                icon.Texture = null;
             }
             
             // Player-InventoryHandling
-            for (int i = 0; i < PlayerBody?.Inventory.Slots.Capacity; i++)
+            for (int i = 0; i < PlayerBody.Inventory.Slots.Capacity; i++)
             {
-                var Icon = (Sprite) GetNode($"UI/Control/PlayerSlots/InventorySlot{i + 1}/Item");
-                //Sprite SelectBox = (Sprite) GetNode($"UI/Control/PlayerSlots/InventorySlot{i + 1}/Selection");
-                var AmountLabel = (RichTextLabel) GetNode($"UI/Control/InventorySlots/InventorySlot{i + 1}/AmountLabel");
+                var icon = (Sprite) GetNode($"UI/Control/PlayerSlots/InventorySlot{i + 1}/Item");
+                var amountLabel = (RichTextLabel) GetNode($"UI/Control/PlayerSlots/InventorySlot{i + 1}/AmountLabel");
 
-                if (PlayerBody.Inventory.Slots.Count <= i) Icon.Texture = null;
-                else
+                if (i < PlayerBody.Inventory.Slots.Count)
                 {
-                    AmountLabel.BbcodeText = InternalInventory[i].Amount.ToString("00");
-                    Icon.Texture = InternalInventory[i].item.Icon;
+                    amountLabel.BbcodeText = PlayerBody.Inventory[i].item.MaxStackAmount > 1
+                        ? PlayerBody.Inventory[i].Amount.ToString("00")
+                        : "";
+                    icon.Texture = PlayerBody.Inventory[i].item.Icon;
+                    continue;
                 }
+                amountLabel.BbcodeText = "";
+                icon.Texture = null;
             }
         }
         
@@ -55,19 +61,19 @@ namespace EvilFarmingGame.Tiles.Home.Storage
         {
             if (slot.GetParent().Name == "PlayerSlots")
             {
-                var slotIndex = Convert.ToInt32(slot.Name.Replace("InventorySlot", ""));
-                if (slotIndex > PlayerBody.Inventory.Slots.Count) return;
+                var slotIndex = Convert.ToInt32(slot.Name.Replace("InventorySlot", ""))-1;
+                if (slotIndex >= PlayerBody.Inventory.Slots.Count) return;
                 
-                InternalInventory.Gain(PlayerBody.Inventory[slotIndex -1]);
-                PlayerBody.Inventory.Remove(PlayerBody.Inventory[slotIndex -1]);
+                InternalInventory.Gain(PlayerBody.Inventory[slotIndex]);
+                PlayerBody.Inventory.Remove(PlayerBody.Inventory[slotIndex]);
             }
             else if (slot.GetParent().Name == "InventorySlots")
             {
-                var slotIndex = Convert.ToInt32(slot.Name.Replace("InventorySlot", ""));
-                if (slotIndex > InternalInventory.Slots.Count) return;
+                var slotIndex = Convert.ToInt32(slot.Name.Replace("InventorySlot", ""))-1;
+                if (slotIndex >= InternalInventory.Slots.Count) return;
                 
-                PlayerBody.Inventory.Gain(InternalInventory[slotIndex -1]);
-                InternalInventory.Remove(InternalInventory[slotIndex -1]);
+                PlayerBody.Inventory.Gain(InternalInventory[slotIndex]);
+                InternalInventory.Remove(InternalInventory[slotIndex]);
             }
         }
         

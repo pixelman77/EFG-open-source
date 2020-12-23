@@ -42,6 +42,12 @@ namespace EvilFarmingGame.Items
 			this.StaminaIncrease = StaminaIncrease;
 			this.IsEdible = IsEdible;
 		}
+
+		public void Eat(global::Player PlayerBody)
+		{
+			PlayerBody.Stamina += StaminaIncrease;
+			PlayerBody.Inventory.Remove(this);
+		}
 	}
 
 	public class Seed : Item
@@ -57,19 +63,23 @@ namespace EvilFarmingGame.Items
 
 	public class Tool : Item
 	{
-		public ToolTypes Type { get; }
+		public delegate bool UseFunc(global::Player PlayerBody);
+		private UseFunc UseFunction;
+		
+		public readonly ToolTypes Type;
 		public float StaminaCost;
 
-		public Tool(string Name, string IconPath, string Description, string ID, ToolTypes type, float StaminaCost, bool IsSellable, float BuyingPrice = 0, float SellingPrice = 0) 
+		public Tool(string Name, string IconPath, string Description, string ID, ToolTypes type, float StaminaCost, bool IsSellable, UseFunc UseFunction = null, float BuyingPrice = 0, float SellingPrice = 0) 
 			: base(Name, IconPath, Description, ID, IsSellable, 0, BuyingPrice, SellingPrice)
 		{
 			Type = type;
+			this.UseFunction = UseFunction;
 			this.StaminaCost = StaminaCost;
 		}
 
 		public void Use(global::Player PlayerBody)
 		{
-			PlayerBody.Stamina -= StaminaCost;
+			if(UseFunction(PlayerBody)) PlayerBody.Stamina -= StaminaCost;
 		}
 	}
 

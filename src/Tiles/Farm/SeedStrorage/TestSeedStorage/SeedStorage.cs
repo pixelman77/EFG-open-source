@@ -8,23 +8,15 @@ public class SeedStorage : InteractableTile
 {
     [Export] public string SeedID;
 
-    public override void _PhysicsProcess(float delta)
+    public override void Interact(Player PlayerBody)
     {
-        if (PlayerColliding)
-        {
-            var CurrentSeed = Database<Item>.Get("Seeds\\"+SeedID);
+        var currentSeed = Database<Item>.Get("Seeds\\"+SeedID);
 
-            if (Input.IsActionJustPressed("Player_Action"))
-            {
-                if ((PlayerBody.Currency >= CurrentSeed.BuyingPrice) && (PlayerBody.Inventory.Slots.Count < PlayerBody.Inventory.Slots.Capacity))
-                {
-                    PlayerBody.Currency -= CurrentSeed.BuyingPrice;
-                    PlayerBody.Inventory.Gain(CurrentSeed);
-                }
-            }
-        }
-        base._PhysicsProcess(delta);
+        if (!Input.IsActionJustPressed("Player_Action") ||
+        !(PlayerBody.Currency >= currentSeed.BuyingPrice) ||
+        PlayerBody.Inventory.Slots.Count >= PlayerBody.Inventory.Slots.Capacity) return;
+        
+        PlayerBody.Currency -= currentSeed.BuyingPrice;
+        PlayerBody.Inventory.Gain(currentSeed);
     }
-
-    
 }

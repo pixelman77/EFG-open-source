@@ -28,24 +28,20 @@ namespace EvilFarmingGame.Player
 
 		public void Gain(Item item, int amount=1)
 		{
-			if (Slots.Count < Slots.Capacity)
+			if (Slots.Count > Slots.Capacity) return;
+			foreach (var slot in Slots)
 			{
-				foreach (var slot in Slots)
-				{
-					if (slot.item == item && slot.Amount < slot.item.MaxStackAmount)
-					{
-						slot.add(amount);
-						return;
-					}
-				}
-
-				Slots.Add(new Slot(item, amount));
+				if (slot.item != item || slot.Amount >= slot.item.MaxStackAmount) continue;
+				slot.add(amount);
+				return;
 			}
+
+			Slots.Add(new Slot(item, amount));
 		}
 
 		public void Remove(Item item, int amount=1)
 		{
-			if (Slots.Count < Slots.Capacity)
+			if (Slots.Count <= Slots.Capacity)
 			{
 				for (int i=0; i<Slots.Count; i++)
 				{
@@ -53,7 +49,7 @@ namespace EvilFarmingGame.Player
 					if (slot.item == item)
 					{
 						slot.remove(amount);
-						if (slot.Amount == 0) Slots.RemoveAt(i);
+						if (slot.Amount == 0) Slots.Remove(slot);
 						return;
 					}
 				}

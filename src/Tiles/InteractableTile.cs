@@ -21,5 +21,7 @@ namespace EvilFarmingGame.Tiles
             OutLine.Visible = false;
             PlayerColliding = false;
         }
+
+        public virtual void Interact(global::Player PlayerBody) {}
     }
 }

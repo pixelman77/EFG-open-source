@@ -91,53 +91,28 @@ public class FarmLand : InteractableTile
         base._PhysicsProcess(delta);
     }
 
-    public override void _Input(InputEvent @event)
+    public void AddSeed(Seed seed)
     {
-        if (PlayerColliding)
-        {
-            if (Input.IsActionJustPressed("Player_Action"))
-            {
-                if (PlayerBody != null && PlayerBody.Inventory.HeldSlot < PlayerBody.Inventory.Slots.Count)
-                {
-
-                    HeldItem = PlayerBody.Inventory[PlayerBody.Inventory.HeldSlot];
-                    if (HeldItem is Tool tool && PlayerBody.Stamina > 0) 
-                    {
-                        if (tool.Type == ToolTypes.Hoe && State == states.UnCropped) 
-                        {
-                            State = states.Cropped;
-                            tool.Use(PlayerBody);
-                        }
-                        else if (tool.Type == ToolTypes.WateringCan && !IsWatered)
-                        {
-                            IsWatered = true;
-                            tool.Use(PlayerBody);
-                        }
-                    }
-                    else if (HeldItem is Seed seed) 
-                    {
-                        if (State == states.Cropped)
-                        {
-                            CurrentPlant = Database<Plant>.Get(seed.PlantID);
-                            PlantedDay = PlayerBody.TimeNode.Day;
-                            PlantedHour = PlayerBody.TimeNode.Hour;
-                            PlayerBody.Inventory.Remove(seed);
-                            GD.Print(PlayerBody.TimeNode.Hour);
-                            State = states.Planted;
-                        }
-                    }
-                }
-
-                if (PlayerBody != null && CurrentPlant != null && PlayerBody.Inventory.Slots.Count < PlayerBody.Inventory.Slots.Capacity)
-                {
-                    if (State == states.Grown)
-                    {
-                        PlayerBody.Inventory.Gain(CurrentPlant.Crop);
-                        CurrentPlant = null;
-                        State = states.UnCropped;
-                    }
-                }
-            }
-        }
+        if (State != states.Cropped) return;
+        
+        CurrentPlant = Database<Plant>.Get(seed.PlantID);
+        PlantedDay = PlayerBody.TimeNode.Day;
+        PlantedHour = PlayerBody.TimeNode.Hour;
+        State = states.Planted;
     }
+
+    public bool CollectPlant()
+    {
+        if (State != states.Grown) return false;
+        
+        PlayerBody.Inventory.Gain(CurrentPlant.Crop);
+        CurrentPlant = null;
+        return true;
+    }
+
+    public override void Interact(Player PlayerBody)
+    {
+        CollectPlant();
+    }
+    
 }
