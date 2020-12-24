@@ -10,16 +10,18 @@ namespace EvilFarmingGame.Items
 		public string ID;
 		public Texture Icon;
 
+		public int MaxStackAmount;
 		public bool IsSellable;
 		public float BuyingPrice;
 		public float SellingPrice;
 
-		public Item(string Name, string IconPath, string Description, string ID, bool IsSellable, float BuyingPrice = 0, float SellingPrice = 0) // Constructor with selling-price
+		public Item(string Name, string IconPath, string Description, string ID, bool IsSellable, int MaxStackAmount = 64, float BuyingPrice = 0, float SellingPrice = 0) // Constructor with selling-price
 		{
 			this.Name = Name;
 			this.Description = Description;
 			this.ID = ID;
-			
+
+			this.MaxStackAmount = MaxStackAmount;
 			this.IsSellable = IsSellable;
 			this.BuyingPrice = BuyingPrice;
 			this.SellingPrice = SellingPrice;
@@ -33,12 +35,18 @@ namespace EvilFarmingGame.Items
 		public bool IsEdible;
 		public float StaminaIncrease;
 		
-		public Crop(string Name, string IconPath, string Description, string ID, bool IsEdible, bool IsSellable,
+		public Crop(string Name, string IconPath, string Description, string ID, bool IsEdible, bool IsSellable, int MaxStackAmount,
 			float StaminaIncrease = 0f, float BuyingPrice = 0, float SellingPrice = 0)
-			: base(Name, IconPath, Description, ID, IsSellable, BuyingPrice, SellingPrice)
+			: base(Name, IconPath, Description, ID, IsSellable, MaxStackAmount , BuyingPrice, SellingPrice)
 		{
 			this.StaminaIncrease = StaminaIncrease;
 			this.IsEdible = IsEdible;
+		}
+
+		public void Eat(global::Player PlayerBody)
+		{
+			PlayerBody.Stamina += StaminaIncrease;
+			PlayerBody.Inventory.Remove(this);
 		}
 	}
 
@@ -46,8 +54,8 @@ namespace EvilFarmingGame.Items
 	{
 		public string PlantID;
 
-		public Seed(string Name, string IconPath, string Description, string ID, string plantID, bool IsSellable, float BuyingPrice = 0, float SellingPrice = 0) 
-			: base(Name, IconPath, Description, ID, IsSellable, BuyingPrice, SellingPrice)
+		public Seed(string Name, string IconPath, string Description, string ID, string plantID, bool IsSellable, int MaxStackAmount, float BuyingPrice = 0, float SellingPrice = 0) 
+			: base(Name, IconPath, Description, ID, IsSellable, MaxStackAmount, BuyingPrice, SellingPrice)
 		{
 			PlantID = plantID;
 		}
@@ -55,19 +63,23 @@ namespace EvilFarmingGame.Items
 
 	public class Tool : Item
 	{
-		public ToolTypes Type { get; }
+		public delegate bool UseFunc(global::Player PlayerBody);
+		private UseFunc UseFunction;
+		
+		public readonly ToolTypes Type;
 		public float StaminaCost;
 
-		public Tool(string Name, string IconPath, string Description, string ID, ToolTypes type, float StaminaCost, bool IsSellable, float BuyingPrice = 0, float SellingPrice = 0) 
-			: base(Name, IconPath, Description, ID, IsSellable, BuyingPrice, SellingPrice)
+		public Tool(string Name, string IconPath, string Description, string ID, ToolTypes type, float StaminaCost, bool IsSellable, UseFunc UseFunction = null, float BuyingPrice = 0, float SellingPrice = 0) 
+			: base(Name, IconPath, Description, ID, IsSellable, 0, BuyingPrice, SellingPrice)
 		{
 			Type = type;
+			this.UseFunction = UseFunction;
 			this.StaminaCost = StaminaCost;
 		}
 
 		public void Use(global::Player PlayerBody)
 		{
-			PlayerBody.Stamina -= StaminaCost;
+			if(UseFunction(PlayerBody)) PlayerBody.Stamina -= StaminaCost;
 		}
 	}
 
@@ -75,8 +87,8 @@ namespace EvilFarmingGame.Items
 	{
 		public string ScenePath;
 		
-		public PlaceableItem(string Name, string IconPath, string Description, string ID, string ScenePath, bool IsSellable, float BuyingPrice = 0, float SellingPrice = 0) 
-			: base(Name, IconPath, Description, ID, IsSellable, BuyingPrice, SellingPrice)
+		public PlaceableItem(string Name, string IconPath, string Description, string ID, string ScenePath, bool IsSellable, int MaxStackAmount, float BuyingPrice = 0, float SellingPrice = 0) 
+			: base(Name, IconPath, Description, ID, IsSellable, MaxStackAmount, BuyingPrice, SellingPrice)
 		{
 			this.ScenePath = ScenePath;
 		}

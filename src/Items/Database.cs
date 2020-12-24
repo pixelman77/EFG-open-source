@@ -17,19 +17,19 @@ namespace EvilFarmingGame.Items
 
         private static Dictionary<string, Item> Items => new Dictionary<string, Item> {
             // Crops.
-            { "Crops\\TestCrop", new Crop("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", "Crops\\TestCrop",true, true, 10, 5, 10) },
-            { "Crops\\TestCrop2", new Crop("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", "Crops\\TestCrop2", true, true, 20,10, 20) },
+            { "Crops\\TestCrop", new Crop("TestCrop", "res://src/Items/Crops/TestCrop/Texture.png", "A simple tomato", "Crops\\TestCrop",true, true, 64, 10, 5,  10) },
+            { "Crops\\TestCrop2", new Crop("TestCrop2", "res://src/Items/Crops/TestCrop2/Texture.png", "A simple blue tomato", "Crops\\TestCrop2", true, true, 64, 20, 10,  20) },
 
             // Seeds.
-            { "Seeds\\TestSeed", new Seed("Test Seed", "res://src/Items/Seeds/Test Seed/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed", "TestPlant", false, 5) },
-            { "Seeds\\TestSeed2", new Seed("Test Seed2", "res://src/Items/Seeds/Test Seed2/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed2", "TestPlant2", false, 10) },
+            { "Seeds\\TestSeed", new Seed("Test Seed", "res://src/Items/Seeds/Test Seed/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed", "TestPlant", false, 64, 5) },
+            { "Seeds\\TestSeed2", new Seed("Test Seed2", "res://src/Items/Seeds/Test Seed2/Texture.png", "A Simple seed used for testing and debugging purposes", "Seeds\\TestSeed2", "TestPlant2", false, 64, 10) },
 
             // Tools.
-            { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", "Tools\\BasicHoe", ToolTypes.Hoe, 10f ,false) },
-            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan, 10f ,false) },
+            { "Tools\\BasicHoe", new Tool("Basic Hoe", "res://src/Items/Tools/Hoe/Texture.png", "Not the fanciest but gets the job done", "Tools\\BasicHoe", ToolTypes.Hoe, 10f , false, ToolFunctions.BasicHoe) },
+            { "Tools\\BasicWateringCan", new Tool("Basic Watering Can", "res://src/Items/Tools/Watering Can/Texture.png", "A basic watering can", "Tools\\BasicWateringCan", ToolTypes.WateringCan, 10f , false, ToolFunctions.BasicWateringCan) },
             
             // Placeables.
-            { "Placeable\\Torches\\WoodenTorch", new PlaceableItem("Wooden Torch", "res://src/Items/Placeables/WoodenTorch/Texture.png", "A simple torch made by a stick and some lighter fluid", "Placeable\\WoodenTorch", "res://src/Items/Placeables/WoodenTorch/WoodenTorch.tscn", false) }
+            { "Placeable\\Torches\\WoodenTorch", new PlaceableItem("Wooden Torch", "res://src/Items/Placeables/WoodenTorch/Texture.png", "A simple torch made by a stick and some lighter fluid", "Placeable\\WoodenTorch", "res://src/Items/Placeables/WoodenTorch/WoodenTorch.tscn", false, 1) }
         };
         
         private static Dictionary<string, Plant> Plants => new Dictionary<string, Plant> {
@@ -41,6 +41,29 @@ namespace EvilFarmingGame.Items
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture1.png",
                 "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Database<Item>.Get("Crops\\TestCrop2"), 1) }
         };
+        
+        /// <summary>
+        ///  Contains the static functions for the tools.
+        /// </summary>
+        private static class ToolFunctions
+        {
+            public static bool BasicHoe(global::Player playerBody)
+            {
+                if (!(playerBody.CollidingInteractable is FarmLand farmLand)) return false;
+                if (farmLand.State != FarmLand.states.UnCropped) return false;
+                farmLand.State = FarmLand.states.Cropped;
+                return true;
+            }
+
+            public static bool BasicWateringCan(global::Player playerBody)
+            {
+                if (!(playerBody.CollidingInteractable is FarmLand farmLand)) return false;
+                if (farmLand.IsWatered) return false;
+                farmLand.IsWatered = true;
+                return true;
+            }
+            
+        }
 
         /// <summary>
         /// Initializes the databases.

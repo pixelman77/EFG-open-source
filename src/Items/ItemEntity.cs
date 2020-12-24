@@ -1,12 +1,11 @@
 using Godot;
 using System;
 using EvilFarmingGame.Items;
-using static EvilFarmingGame.Items.Database<EvilFarmingGame.Items.Item>;
 
 [Tool]
 public class ItemEntity : Area2D
 {
-	[Export()] public string ItemID = "Seeds\\TestSeed";
+	[Export()] public string ItemID;
 
 	public Item CurrentItem;
 	private Sprite ItemSprite;
