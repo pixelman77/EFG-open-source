@@ -12,9 +12,11 @@ public class FarmLand : InteractableTile
     private Sprite PlantSeedling;
     private Sprite PlantGrown;
     private Sprite Hole;
-
+    
     private int PlantedDay;
     private int PlantedHour;
+    public int CroppedDay;
+    public int CroppedHour;
 
     private Item HeldItem;
 
@@ -23,9 +25,7 @@ public class FarmLand : InteractableTile
         UnCropped = 0,
         Cropped,
         Planted,
-        Watered,
         Grown
-        
     }
 
     public states State;
@@ -80,12 +80,19 @@ public class FarmLand : InteractableTile
             PlantGrown.Texture = CurrentPlant.GrownTexture;
         }
 
-        if (PlayerBody != null && CurrentPlant != null && IsWatered &&
-            PlayerBody.TimeNode.Day == PlantedDay + CurrentPlant.GrowthDuration &&
-            PlayerBody.TimeNode.Hour == PlantedHour)
+        if (PlayerBody != null && CurrentPlant != null)
         {
-            State = states.Grown;
-            IsWatered = false;
+            if (IsWatered && PlayerBody.TimeNode.Day == PlantedDay + CurrentPlant.GrowthDuration &&
+                PlayerBody.TimeNode.Hour == PlantedHour)
+            {
+                State = states.Grown;
+                IsWatered = false;
+            }
+            if (PlayerBody.TimeNode.Day == CroppedDay + 1 && State == states.Cropped &&
+                PlayerBody.TimeNode.Hour == PlantedHour)
+            {
+                State = states.UnCropped;
+            }
         }
 
         base._PhysicsProcess(delta);
@@ -101,7 +108,7 @@ public class FarmLand : InteractableTile
         State = states.Planted;
     }
 
-    public bool CollectPlant()
+    public bool CollectPlant(Player PlayerBody)
     {
         if (State != states.Grown) return false;
         
@@ -112,7 +119,7 @@ public class FarmLand : InteractableTile
 
     public override void Interact(Player PlayerBody)
     {
-        CollectPlant();
+        CollectPlant(PlayerBody);
     }
     
 }

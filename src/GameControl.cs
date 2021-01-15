@@ -26,4 +26,9 @@ public class GameControl : Node2D
             timeNode.NextDay();
         }
     }
+
+    public override void _Process(float delta)
+    {
+        OS.SetWindowTitle($"ThatEvilFarmingGame | FPS: {Engine.GetFramesPerSecond()}");
+    }
 }

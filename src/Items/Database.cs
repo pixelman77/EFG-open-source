@@ -33,13 +33,8 @@ namespace EvilFarmingGame.Items
         };
         
         private static Dictionary<string, Plant> Plants => new Dictionary<string, Plant> {
-            { "TestPlant",  new Plant("Test Plant", "A Plant used for testing and debugging purposes", 0,
-                "res://src/Tiles/Farm/Plants/TestPlant/Texture1.png",
-                "res://src/Tiles/Farm/Plants/TestPlant/Texture2.png", Database<Item>.Get("Crops\\TestCrop"), 1) },
-            
-            { "TestPlant2", new Plant("Test Plant2", "A Plant used for testing and debugging purposes", 1,
-                "res://src/Tiles/Farm/Plants/TestPlant2/Texture1.png",
-                "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Database<Item>.Get("Crops\\TestCrop2"), 1) }
+            { "TestPlant",  new Plant("Test Plant", "A Plant used for testing and debugging purposes", 0, "res://src/Tiles/Farm/Plants/TestPlant/Texture1.png", "res://src/Tiles/Farm/Plants/TestPlant/Texture2.png", Database<Item>.Get("Crops\\TestCrop"), 1) },
+            { "TestPlant2", new Plant("Test Plant2", "A Plant used for testing and debugging purposes", 1, "res://src/Tiles/Farm/Plants/TestPlant2/Texture1.png", "res://src/Tiles/Farm/Plants/TestPlant2/Texture2.png", Database<Item>.Get("Crops\\TestCrop2"), 1) }
         };
         
         /// <summary>
@@ -47,18 +42,23 @@ namespace EvilFarmingGame.Items
         /// </summary>
         private static class ToolFunctions
         {
-            public static bool BasicHoe(global::Player playerBody)
+            public static bool BasicHoe(global::Player PlayerBody)
             {
-                if (!(playerBody.CollidingInteractable is FarmLand farmLand)) return false;
+                if (!(PlayerBody.CollidingInteractable is FarmLand farmLand)) return false;
                 if (farmLand.State != FarmLand.states.UnCropped) return false;
+                
                 farmLand.State = FarmLand.states.Cropped;
+                farmLand.CroppedDay = PlayerBody.TimeNode.Day;
+                farmLand.CroppedHour = PlayerBody.TimeNode.Hour;
+                
                 return true;
             }
 
-            public static bool BasicWateringCan(global::Player playerBody)
+            public static bool BasicWateringCan(global::Player PlayerBody)
             {
-                if (!(playerBody.CollidingInteractable is FarmLand farmLand)) return false;
+                if (!(PlayerBody.CollidingInteractable is FarmLand farmLand)) return false;
                 if (farmLand.IsWatered) return false;
+                
                 farmLand.IsWatered = true;
                 return true;
             }

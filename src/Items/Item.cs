@@ -35,7 +35,7 @@ namespace EvilFarmingGame.Items
 		public bool IsEdible;
 		public float StaminaIncrease;
 		
-		public Crop(string Name, string IconPath, string Description, string ID, bool IsEdible, bool IsSellable, int MaxStackAmount,
+		public Crop(string Name, string IconPath, string Description, string ID, bool IsEdible, bool IsSellable, int MaxStackAmount = 64,
 			float StaminaIncrease = 0f, float BuyingPrice = 0, float SellingPrice = 0)
 			: base(Name, IconPath, Description, ID, IsSellable, MaxStackAmount , BuyingPrice, SellingPrice)
 		{
@@ -54,7 +54,7 @@ namespace EvilFarmingGame.Items
 	{
 		public string PlantID;
 
-		public Seed(string Name, string IconPath, string Description, string ID, string plantID, bool IsSellable, int MaxStackAmount, float BuyingPrice = 0, float SellingPrice = 0) 
+		public Seed(string Name, string IconPath, string Description, string ID, string plantID, bool IsSellable, int MaxStackAmount=64, float BuyingPrice = 0, float SellingPrice = 0) 
 			: base(Name, IconPath, Description, ID, IsSellable, MaxStackAmount, BuyingPrice, SellingPrice)
 		{
 			PlantID = plantID;
@@ -79,7 +79,7 @@ namespace EvilFarmingGame.Items
 
 		public void Use(global::Player PlayerBody)
 		{
-			if(UseFunction(PlayerBody)) PlayerBody.Stamina -= StaminaCost;
+			if (UseFunction(PlayerBody)) PlayerBody.Stamina -= StaminaCost;
 		}
 	}
 
