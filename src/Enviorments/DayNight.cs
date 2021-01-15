@@ -21,11 +21,11 @@ public class DayNight : Node2D
 
     public override void _Process(float delta)
     {
-        if(Afternoon && Hour > 11)
+        if (Afternoon && Hour > 11)
         {
             NextDay();
         }
-        else if(Hour > 12)
+        else if (Hour > 12)
         {
             Afternoon = true;
             Hour = 1;
@@ -50,5 +50,28 @@ public class DayNight : Node2D
         Afternoon = false;
         Hour = Minute = MinutesInDay = 0;
         Day++;
+    }
+
+    public void AddMinutes(int x)
+    {
+        if (Minute + x > 60)
+        {
+            Minute += x - 60;
+            Hour++;
+            return;
+        }
+
+        Minute += x;
+    }
+    public void AddHours(int x)
+    {
+        if (Hour + x > 24)
+        {
+            Minute += x - 24;
+            Day++;
+            return;
+        }
+
+        Hour += x;
     }
 }

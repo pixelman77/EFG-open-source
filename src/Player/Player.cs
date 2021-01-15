@@ -50,9 +50,7 @@ public class Player : KinematicBody2D
         
         Clock = (RichTextLabel) GetNode("UI/ControlUI/Clock");
         DialogueBox = (Dialogue) GetNode("DialogueBox");
-        //MessageLabel = (RichTextLabel) GetNode("UI/ControlUI/Message");
-        //MessageLabel.BbcodeText = "";
-        
+
         CurrencyLabel = (RichTextLabel) GetNode("UI/ControlUI/Currency");
         Currency += 5;
 
@@ -81,14 +79,6 @@ public class Player : KinematicBody2D
 
     public override void _Input(InputEvent @event)
     {
-        //// Eating items
-        //if (Input.IsActionJustPressed("Player_UseItem") && Inventory.HeldSlot < Inventory.Slots.Count &&
-        //    Inventory[Inventory.HeldSlot].item is Crop food && food.IsEdible)
-        //{
-        //    Stamina += food.StaminaIncrease;
-        //    Inventory.Remove(food);
-        //}
-        
         // Dropping Items
         if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Slots.Count && CanMove)
         {
@@ -145,7 +135,7 @@ public class Player : KinematicBody2D
         }
 
     }
-
+    
     //TODO: Add Body-Drag Animation
     private void AnimationHandeling()
     {
