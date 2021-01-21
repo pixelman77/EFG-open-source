@@ -51,7 +51,7 @@ public class ItemEntity : Area2D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (PlayerColliding && PlayerBody.Inventory.Items.Count < PlayerBody.Inventory.Items.Capacity && CanBePickedUp && !IsJustDropped)
+		if (PlayerColliding && PlayerBody.Inventory.CanBeAdded(CurrentItem) && CanBePickedUp && !IsJustDropped)
 		{
 			PlayerBody.Inventory.Gain(CurrentItem);
 			CanBePickedUp = false;
