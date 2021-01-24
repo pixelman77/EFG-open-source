@@ -43,6 +43,7 @@
     <Compile Include="src\Tiles\InteractableTile.cs" />
     <Compile Include="src\UI\DialougeBox\Dialogue.cs" />
     <Compile Include="src\UI\Inventory\InventorySlot.cs" />
+    <Compile Include="src\UI\PauseMenu\PauseMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\UI\Inventory" />

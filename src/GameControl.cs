@@ -10,10 +10,7 @@ public class GameControl : Node2D
         {
             OS.WindowFullscreen = !OS.WindowFullscreen;
         }
-        
-        //TODO: Add game menu
-        //if (Input.IsActionJustPressed("Window_Exit"))
-        //GetTree().Quit();
+
 
         if (Input.IsActionPressed("Game_FastForward") && Debugging)
             Engine.TimeScale = 60;
