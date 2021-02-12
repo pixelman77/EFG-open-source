@@ -95,6 +95,9 @@
           <e p="Inventory" t="Include">
             <e p="InventorySlot.cs" t="Include" />
           </e>
+          <e p="PauseMenu" t="Include">
+            <e p="PauseMenu.cs" t="Include" />
+          </e>
         </e>
       </e>
     </e>
