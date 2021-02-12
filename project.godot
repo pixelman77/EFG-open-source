@@ -23,10 +23,6 @@ config/icon="res://icon.png"
 
 GameControl="*res://src/GameControl.cs"
 
-[debug]
-
-settings/fps/force_fps=144
-
 [display]
 
 window/size/width=1280

@@ -41,7 +41,6 @@ public class Player : KinematicBody2D
     
     public override void _Ready()
     {
-        // Fetch all the nodes
         Controller = new PlayerController(this);
         Sprite = (AnimatedSprite) GetNode("Sprite");
 
@@ -54,10 +53,9 @@ public class Player : KinematicBody2D
 
         CurrencyLabel = (RichTextLabel) GetNode("UI/ControlUI/Currency");
         Currency += 5;
+
+        Inventory = new Inventory(5);
         
-        Inventory = new Inventory(5); // Instantiate the inventory
-        
-        // Handles the time node
         if(Owner.HasNode("DayNight"))
             TimeNode = (DayNight) Owner.GetNode("DayNight");
         else
@@ -84,59 +82,53 @@ public class Player : KinematicBody2D
         // Dropping Items
         if (Input.IsActionJustPressed("Player_Drop") && Inventory.HeldSlot < Inventory.Slots.Count && CanMove)
         {
-            var Item = (ItemEntity) ((PackedScene)GD.Load("res://src/Items/ItemEntity.tscn")).Instance(); // Creates a new ItemEntity instance
+            var Item = (ItemEntity) ((PackedScene)GD.Load("res://src/Items/ItemEntity.tscn")).Instance();
             
-            Item.CurrentItem = Inventory[Inventory.HeldSlot]; // Sets the ItemEntity's item
-            Item.Position = Position; // Sets the ItemEntity's position
-            Inventory.Remove(Inventory[Inventory.HeldSlot]); // Removes the item from the players inventory
+            Item.CurrentItem = Inventory[Inventory.HeldSlot];
+            Item.Position = Position;
+            Inventory.Remove(Inventory[Inventory.HeldSlot]);
             Item.IsJustDropped = true;
 
-            GetParent().GetNode("Items").AddChild(Item); // Drops the item
+            GetParent().GetNode("Items").AddChild(Item);
         }
 
         if (Input.IsActionJustPressed("Player_UseItem") && CanMove)
         {
             // Handles Item interaction
-            if (Inventory.HeldSlot >= Inventory.Slots.Count) return; // returns if the selected slot doesnt have an item
-            
-            // Handles the item-interaction
-            switch (Inventory[Inventory.HeldSlot].item)
+            if (Inventory.HeldSlot < Inventory.Slots.Count)
             {
-                // Use the tool
-                case Tool T:
-                    T.Use(this); // Uses the tool
-                    break;
-                
-                // Eat the crop if it is edible
-                case Crop T:
-                    if (T.IsEdible) T.Eat(this); // Eats the crop if it is edible
-                    break;
-                
-                // Plant the seed
-                case Seed T:
-                    if (!(CollidingInteractable is FarmLand farmLand)) break; // Checks if the player is interacting with farmland
-                    farmLand.AddSeed(T); // Adds the seed to the farmland
-                    Inventory.Remove(Inventory[Inventory.HeldSlot].item); // Removes the seed from the players inventory 
-                    break;
+                switch (Inventory[Inventory.HeldSlot].item)
+                {
+                    case Tool T:
+                        T.Use(this);
+                        break;
                     
-                // Place the placeable-item
-                case PlaceableItem T:
-                    var itemBody = (PlacedItem) ((PackedScene)GD.Load(T.ScenePath)).Instance(); // Create new PlacedItem instance
-                    itemBody.CurrentItem = T; // Set the item of the placed item
-                    itemBody.Position = Position; // Set the position of the placed item
+                    case Crop T:
+                        if (T.IsEdible) T.Eat(this);
+                        break;
+                    
+                    case Seed T:
+                        if (!(CollidingInteractable is FarmLand farmLand)) break;
+                        farmLand.AddSeed(T);
+                        Inventory.Remove(Inventory[Inventory.HeldSlot].item);
+                        break;
+                    
+                    case PlaceableItem T:
+                        var itemBody = (PlacedItem) ((PackedScene)GD.Load(T.ScenePath)).Instance();
+                        itemBody.CurrentItem = T;
+                        itemBody.Position = Position;
             
-                    Inventory.Remove(T); // Remove the item from the inventory
-                    GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody); // Add the PlacedItem instance to the scene
-                    break;
+                        Inventory.Remove(T);
+                        GetParent().GetNode("Environment/PlacedItems").AddChild(itemBody);
+                        break;
+                }
             }
         }
-
-        if (!Input.IsActionJustPressed("Player_Action") || !CanMove) return; // Checks if the player action is pressed and if the player can interact
+        else if (Input.IsActionJustPressed("Player_Action") && CanMove)
         {
-            if (CollidingInteractable == null) return; // Checks if the CollidingTile is null
-            switch (CollidingInteractable) // Checks the colliding tile type
+            if (CollidingInteractable == null) return;
+            switch (CollidingInteractable)
             {
-                // Interacts with interactable tile
                 case InteractableTile T:
                     T.Interact(this);
                     break;
@@ -145,45 +137,48 @@ public class Player : KinematicBody2D
 
     }
     
-    // Handles player animation
+    //TODO: Add Body-Drag Animation
     private void AnimationHandeling()
     {
-        switch (Controller.CurrentDirection)
+        if (Input.IsActionPressed("Player_Left") ||
+            (Input.IsActionPressed("Player_Left") && Input.IsActionPressed("Player_UP")))
+            {
+                Sprite.Play("Left-walk");
+            }
+            else if (Input.IsActionPressed("Player_Right") ||
+                     (Input.IsActionPressed("Player_Right") && Input.IsActionPressed("Player_UP")))
+            {
+                Sprite.Play("Right-walk");
+            }
+            else if (Input.IsActionPressed("Player_Up"))
+            {
+                Sprite.Play("Up-walk");
+            }
+            else if (Input.IsActionPressed("Player_Down"))
+            {
+                Sprite.Play("Down-walk");
+            }
+        
+        else
         {
-            case PlayerController.Direction.Left:
-                if (Velocity.x != 0 || Velocity.y != 0)
-                {
-                    Sprite.Play("Left-walk");
-                    break;
-                }
+            if (Input.IsActionJustReleased("Player_Left") ||
+                (Input.IsActionJustReleased("Player_Left") && Input.IsActionJustReleased("Player_UP")))
+            {
                 Sprite.Play("Left");
-                break;
-            case PlayerController.Direction.Right:
-                if (Velocity.x != 0 || Velocity.y != 0)
-                {
-                    Sprite.Play("Right-walk");
-                    break;
-                }
+            }
+            else if (Input.IsActionJustReleased("Player_Right") ||
+                     (Input.IsActionJustReleased("Player_Right") && Input.IsActionJustReleased("Player_UP")))
+            {
                 Sprite.Play("Right");
-                break;
-            case PlayerController.Direction.Up:
-                if (Velocity.x != 0 || Velocity.y != 0)
-                {
-                    Sprite.Play("Up-walk");
-                    break;
-                }
+            }
+            else if (Input.IsActionJustReleased("Player_Up"))
+            {
                 Sprite.Play("Up");
-                break;
-            case PlayerController.Direction.Down:
-                if (Velocity.x != 0 || Velocity.y != 0)
-                {
-                    Sprite.Play("Down-walk");
-                    break;
-                }
+            }
+            else if (Input.IsActionJustReleased("Player_Down"))
+            {
                 Sprite.Play("Down");
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            }
         }
     }
 
@@ -191,31 +186,30 @@ public class Player : KinematicBody2D
     {
         for (int i = 0; i < Inventory.Slots.Count; i++)
         {
-            var icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item"); // Fetch the needed ui inventory slot
-            var amountLabel = (RichTextLabel) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/AmountLabel"); // Fetch the amount-label
-            if (Inventory[i].item == null) continue; // Continues the loop if the slot has no item 
+            var icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
+            var amountLabel = (RichTextLabel) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/AmountLabel");
+            if (Inventory[i].item == null) continue;
             
-            icon.Texture = Inventory[i].item.Icon; // Applies the item's icon to the inventory ui
-            amountLabel.BbcodeText = Inventory[i].item.MaxStackAmount > 1 // Sets the amount-label to the correct amount
+            icon.Texture = Inventory[i].item.Icon;
+            amountLabel.BbcodeText = Inventory[i].item.MaxStackAmount > 1
                 ? Inventory[i].Amount.ToString() 
                 : "";
         }
 
         for (int i = 0; i < Inventory.Slots.Capacity; i++)
         {
-            var icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item"); // Fetch the needed ui inventory slot
-            var selectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection"); // Fetch the select-box
-            var amountLabel = (RichTextLabel) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/AmountLabel"); // Fetch the amount-label
+            var icon = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Item");
+            var selectBox = (Sprite) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/Selection");
+            var amountLabel = (RichTextLabel) GetNode($"UI/ControlUI/Inventory/InventorySlot{i + 1}/AmountLabel");
 
-            selectBox.Visible = (i == Inventory.HeldSlot); // Makes the select-box visible if the slot is selected
+            selectBox.Visible = (i == Inventory.HeldSlot);
 
-            if (i < Inventory.Slots.Count) continue; // continues the loop if a slot is not empty
-            icon.Texture = null; // clears the slot-icon
-            amountLabel.BbcodeText = ""; // clears the amount-label
+            if (i < Inventory.Slots.Count) continue;
+            icon.Texture = null;
+            amountLabel.BbcodeText = "";
         }
-        
-        // Changes the selected slot
-        if (Input.IsActionJustPressed("ui_right")) 
+
+        if (Input.IsActionJustPressed("ui_right"))
         {
             if (Inventory.HeldSlot < Inventory.Slots.Capacity - 1)
                 Inventory.HeldSlot++;
@@ -227,28 +221,26 @@ public class Player : KinematicBody2D
         }
     }
 
-    // Handles the players interaction with objects
     private void RayCasting()
-    {   
-        // Automatically picks up items
+    {
         foreach (Area2D CollidedArea in GetNode<Area2D>("ItemPickUpRange").GetOverlappingAreas())
         {
-            if (!(CollidedArea is ItemEntity it)) continue;
-            it.PlayerColliding = true;
-            it.PlayerBody = this;
+            if (CollidedArea is ItemEntity)
+            {
+                ItemEntity IT = (ItemEntity)CollidedArea;
+                IT.PlayerColliding = true;
+                IT.PlayerBody = this;
+            }
         }
-        
-        // Interacts with interactable areas
+
         foreach (Area2D RayCast in GetTree().GetNodesInGroup("PlayerRays"))
         {
-            var collided = false; // Checks if the area has and to breaks the loop
-            if (RayCast.GetOverlappingAreas().Count <= 0) continue; // Checks if the area has collided
-            var collidedTile = RayCast.GetOverlappingAreas()[0]; // Fetches the collided tile
-            
-            // Checks the tiles type
+            var collided = false;
+            if (RayCast.GetOverlappingAreas().Count <= 0) continue;
+            var collidedTile = RayCast.GetOverlappingAreas()[0];
+
             switch (collidedTile)
             {
-                // Handles interactable tiles
                 case InteractableTile T:
                     T.OutLine.Visible = true;
                     T.PlayerColliding = true;
@@ -256,15 +248,16 @@ public class Player : KinematicBody2D
                     CollidingInteractable = T;
                     collided = true;
                     break;
-                
-                // Handles NPC's
+                    
+                    //case ItemEntity T:
+                        //break;
+                    
                 case NPC T:
                     T.PlayerColliding = true;
                     T.PlayerBody = this;
                     collided = true;
                     break;
-                
-                // Handles placed items
+                    
                 case PlacedItem T:
                     T.PlayerColliding = true;
                     T.PlayerBody = this;
@@ -272,49 +265,46 @@ public class Player : KinematicBody2D
                     collided = true;
                     break;
             }
-            
-            if (collided) break; // Breaks the loop if collided
-            CollidingInteractable = null; // Clears the interactable tile if the area hasn't collided with a tile
+
+            if (collided) break;
+            CollidingInteractable = null;
         }
     }
-    
-    // Displays the time
+
     private void TimeHandling()
     {
         Clock.BbcodeText = TimeNode.Afternoon
             ? $"Day: {TimeNode.Day}, {TimeNode.Hour}:{TimeNode.Minute:00} PM"
             : $"Day: {TimeNode.Day}, {TimeNode.Hour}:{TimeNode.Minute:00} AM";
     }
-    
-    // Handles the players stats
+
     private void StatsHandling()
     {
-        var statsUI = (Control) UI.GetNode("Stats"); // Fetch the stats ui node
+        var statsUI = (Control) UI.GetNode("Stats");
         
         // Stamina
-        Stamina = Mathf.Clamp(Stamina, 0f, MaxStamina); // Clamps the stamina to a value between 0-MacStamina
+        Stamina = Mathf.Clamp(Stamina, 0f, MaxStamina);
         
-        var staminaBar = (TextureProgress) statsUI.GetNode("Stamina"); // Fetches the stamina bar
-        staminaBar.Value = Stamina; // Sets the value of the stamina-bar to the current value
-        staminaBar.MaxValue = MaxStamina; // Sets the max value of the stamina-bar to the current max value
-        
-        // Currency
-        if (CurrencyLabel != null)
-            CurrencyLabel.BbcodeText = $"{Currency}G"; // Updates the currency value
-
+        var staminaBar = (TextureProgress) statsUI.GetNode("Stamina");
+        staminaBar.Value = Stamina;
+        staminaBar.MaxValue = MaxStamina;
     }
-    
-    // Handles the player logic
+
     private void PlayerLogic()
     {
+        if (CurrencyLabel != null)
+            CurrencyLabel.BbcodeText = $"{Currency}G";
+
         if (!DialogueBox.IsShown && UI.Visible)
-            CanMove = true; // Allows the player to move if no UI is shown
+        {
+            CanMove = true;
+        }
     }
 
-    public void MessagePlayer(string Message) // Announces a message to the player
+    public void MessagePlayer(string Message)
     {
         DialogueBox.PlayerBody = this; 
-        if (!DialogueBox.IsShown && CanMove)
+        if(!DialogueBox.IsShown && CanMove)
             DialogueBox.Announce(Message);
     }
     
