@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://src/UI/Inventory/Inventory Slot.tscn" type="PackedScene" id=2]
@@ -25,11 +25,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "Up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Left-walk",
@@ -60,6 +55,10 @@ animations = [ {
 "name": "Left",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Up",
+},
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Down-walk",
@@ -81,15 +80,23 @@ font_data = ExtResource( 5 )
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 3 )
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="CapsuleShape2D" id=8]
 radius = 8.0
 height = 16.0
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=9]
 radius = 8.00002
 height = 0.0
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=10]
 radius = 24.0
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -112,14 +119,13 @@ drag_margin_bottom = 0.25
 editor_draw_drag_margin = true
 
 [node name="UI" type="CanvasLayer" parent="."]
-scale = Vector2( 1.5, 1.5 )
-transform = Transform2D( 1.5, 0, 0, 1.5, 0, 0 )
 
 [node name="ControlUI" type="Control" parent="UI"]
-margin_left = -250.667
-margin_top = -218.667
-margin_right = -210.667
-margin_bottom = -178.667
+margin_left = -376.0
+margin_top = -336.0
+margin_right = -336.0
+margin_bottom = -296.0
+rect_scale = Vector2( 1.5, 1.5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -220,6 +226,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Menu" type="Control" parent="UI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/Menu"]
+position = Vector2( 8, 0 )
+color = Color( 0, 0, 0, 0.392157 )
+polygon = PoolVector2Array( 0, 0, 0, 768, 1280, 768, 1280, 0 )
+
+[node name="PausedLabel" type="RichTextLabel" parent="UI/Menu"]
+margin_left = 448.0
+margin_top = 256.0
+margin_right = 848.0
+margin_bottom = 384.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "Game Paused"
+text = "Game Paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="MenuButton" parent="UI/Menu"]
+margin_left = 504.0
+margin_top = 304.0
+margin_right = 776.0
+margin_bottom = 366.0
+custom_fonts/font = SubResource( 7 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="MenuButton" parent="UI/Menu"]
+margin_left = 560.0
+margin_top = 352.0
+margin_right = 720.0
+margin_bottom = 414.0
+custom_fonts/font = SubResource( 7 )
+text = "Quit Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [node name="PauseMenu" parent="UI" instance=ExtResource( 22 )]
 
 [node name="RayPivot" type="Area2D" parent="." groups=[
@@ -229,7 +282,7 @@ collision_mask = 0
 
 [node name="RayCast2D" type="CollisionShape2D" parent="RayPivot"]
 position = Vector2( 0, 16 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="StaticRaycast" type="Area2D" parent="." groups=[
 "PlayerRays",
@@ -239,12 +292,12 @@ collision_mask = 0
 [node name="RayCast2D2" type="CollisionShape2D" parent="StaticRaycast"]
 position = Vector2( 0, -16 )
 rotation = 3.14159
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="ItemPickUpRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickUpRange"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -8, -16, 8, -16, 8, 0, 8, 16, -8, 16, -8, -16 )
@@ -258,3 +311,4 @@ texture = ExtResource( 20 )
 texture_scale = 0.5
 shadow_enabled = true
 [connection signal="timeout" from="UI/ControlUI/MessageTimer" to="." method="OnMessageTimer"]
+[connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="Continue"]

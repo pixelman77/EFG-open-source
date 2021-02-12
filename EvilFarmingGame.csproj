@@ -6,8 +6,50 @@
     <AssemblyName>EvilFarmingGame</AssemblyName>
     <GodotProjectGeneratorVersion>1.0.0.0</GodotProjectGeneratorVersion>
     <TargetFramework>net472</TargetFramework>
-    <!--The following properties were overriden during migration to prevent errors.
-    Enabling them may require other manual changes to the project and its files.-->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>false</Deterministic>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Bodies\NPC's\NPC.cs" />
+    <Compile Include="src\Bodies\WifesBody\WifesBody.cs" />
+    <Compile Include="src\Enviorments\DayNight.cs" />
+    <Compile Include="src\Enviorments\Scene.cs" />
+    <Compile Include="src\Items\Item.cs" />
+    <Compile Include="src\Items\Database.cs" />
+    <Compile Include="src\Items\ItemEntity.cs" />
+    <Compile Include="src\Items\Placeables\WoodenTorch\WoodenTorch.cs" />
+    <Compile Include="src\Player\InventoryDetails.cs" />
+    <Compile Include="src\Tiles\Base\PlacedItem\PlacedItem.cs" />
+    <Compile Include="src\Items\Placeables\Base\Torch\Torch.cs" />
+    <Compile Include="src\Tiles\Farm\FarmLand\FarmLand.cs" />
+    <Compile Include="src\Tiles\Farm\Plants\Plant.cs" />
+    <Compile Include="src\Player\Inventory.cs" />
+    <Compile Include="src\Player\Player.cs" />
+    <Compile Include="src\Player\PlayerController.cs" />
+    <Compile Include="src\Tiles\Farm\SeedStrorage\TestSeedStorage\SeedStorage.cs" />
+    <Compile Include="src\GameControl.cs" />
+    <Compile Include="src\Tiles\Farm\SellingBooth\SellingBooth.cs" />
+    <Compile Include="src\Tiles\Home\Bed\Bed.cs" />
+    <Compile Include="src\Tiles\Home\Storage\Storage.cs" />
+    <Compile Include="src\Tiles\Home\Storage\TestStorage\TestCloset.cs" />
+    <Compile Include="src\Tiles\InteractableTile.cs" />
+    <Compile Include="src\UI\DialougeBox\Dialogue.cs" />
+    <Compile Include="src\UI\Inventory\InventorySlot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\UI\Inventory" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\Dialogue\Template.json" />
+    <Content Include="src\Dialogue\TestDialogue\TestNPC.json" />
+  </ItemGroup>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Deterministic>false</Deterministic>

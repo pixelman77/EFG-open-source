@@ -51,12 +51,11 @@ public class ItemEntity : Area2D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (PlayerColliding && PlayerBody.Inventory.CanBeAdded(CurrentItem) && CanBePickedUp && !IsJustDropped)
-		{
-			PlayerBody.Inventory.Gain(CurrentItem);
-			CanBePickedUp = false;
-			QueueFree();
-		}
+		if (!PlayerColliding || PlayerBody.Inventory.Slots.Count >= PlayerBody.Inventory.Slots.Capacity ||
+		    !CanBePickedUp || IsJustDropped) return;
+		PlayerBody.Inventory.Gain(CurrentItem);
+		CanBePickedUp = false;
+		QueueFree();
 	}
 	
 }
